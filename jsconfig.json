@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        //"allowJs": true, //tsconfig.json
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+}

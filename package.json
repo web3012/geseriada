@@ -1,0 +1,25 @@
+{
+  "name": "cataloggeseriada",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build && next export"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^10.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.28.0",
+    "underscore": "^1.11.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "marked": "^1.2.0",
+    "raw-loader": "^4.0.1"
+  }
+}
