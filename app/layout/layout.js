@@ -1,43 +1,37 @@
 
 import React from 'react'
-import Nadp from '../../public/nadp.svg'
+import SvgSitename from '../../public/img/sitename.svg'
+import SvgSearch from '../../public/img/search.svg'
 
 const Layout = (props) => {
     return (
         <React.Fragment>
             <header>
-                <div className="wr">
-                    <div className="left"><img src="/logo.png" /></div>
-                    <div className="center"><Nadp /></div>
-                    <div className="right"><img src="/logo.png" /></div>
-
-                    <div></div>
-                    <div>
+                <div id="logo"><img src="/logo.png" /></div>
+                <div id="sitename"><SvgSitename/></div>
+                <div id="search">
+                    <span>ПОИСК</span>
+                    <SvgSearch/>
+                </div>
+                <div id="menu">
                     <ul className="menu">
                         <li>ГЛАВНАЯ</li>
                         <li>КАТАЛОГ</li>
                         <li>ИСТОРИЯ КОЛЛЕКЦИИ</li>
                         <li>О ПРОЕКТЕ</li>
                     </ul>
-                    </div>
-                    <div></div>
                 </div>
+
             </header>
+
+
             <main>
-                <div className="wr">
-
-                    <div className="content">
-                        {props.children}
-                    </div>
-
-                </div>
+                {props.children}
             </main>
 
             <footer>
                 <div className="wr">
-                    <div className="left"></div>
-                    <div className="center">Copyright, 2020</div>
-                    <div className="right"></div>
+                    <div className="txt">Copyright, 2020</div>
                 </div>
             </footer>
 
