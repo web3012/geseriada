@@ -1,19 +1,14 @@
+import React from 'react'
 import Layout from "../app/layout/layout"
 import { getAllAutors, getAutor } from '../app/api'
-import Image from 'next/image'
+import FrontpageSlider from '../app/components/FrontpageSlider'
 
 const Page = (props) => {
 
     let autors = props.autors || []
-    //console.log("data", autors[0].data)
 
     return (
         <Layout>
-            <div className="wr">
-                <div className="content">
-                    
-                </div>
-            </div>
 
             <div className="screen">
                 <img src="/img/screen.jpg" />
@@ -21,26 +16,9 @@ const Page = (props) => {
 
             <div className="wr">
                 <div className="content">
-                    <p>Злое чудовище хочет уничтожить на земле все живое:</p>
-                    <p>
-                        Пусть умрет человеческий плод<br />
-                        Станет мальчиком? Пусть умрет<br />
-                        Станет девочкой? Пусть умрет<br />
-                        Пусть людской прекратиться род
-                    </p>
-                    <p>
-                        Чтобы спасти человеческий род от поголовной гибели, на борьбу с чудовищем отправляется Гэсэр.<br />
-                        Кто же этот богатырь?<br />
-                        Это, оказывается небожитель, Бухэ- Бэлигтэ, и, когда он с неба спускается на землю, чтобы совершить подвиг добра, он превращается в человека.<br />
-                        Он заново рождается на земле в нищей пастушеской хижине, ибо только «человеческое дитя», рожденное в семье бедняков, может, по мысли слагателей эпоса, понять горе и чаянья народа.<br />
-                        В этом эпизоде – истинная поэзия и истинная народность, потому что основа поэзии, как и народности, - человечность.
-                    </p>
-                    <p>
-                        А.И. Уланов, доктор филологических наук
-                    </p>
+                    <FrontpageSlider/>
                 </div>
             </div>
-
 
             {autors && autors.map((el) => {
 
