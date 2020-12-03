@@ -44,25 +44,24 @@ const Layout = (props) => {
                 <div className="wr">
                     <div className="content">
                         <div className="txt">
-                            <p><b>Copyright, 2020</b></p>
+                            <p>&copy; 2020</p>
                             <p>
                                 Национальный музей<br />
                                 Республики Бурятия
                             </p>
                             <p>
-                                <b>Научные сотрудники:</b><br />
+                                Научные сотрудники:<br />
                                 (3012) 21-43-93<br />
                                 (3012) 21-44-88<br />
                             </p>
                             <p>
-                                <b>Вахта</b><br />
+                                Вахта<br />
                                 (3012) 21-98-14
                             </p>
 
                         </div>
 
                         <div className="txt">
-                            <p><b>Мы находимся</b></p>
                             <p>
                                 <Adr/>
                             </p>
@@ -71,11 +70,11 @@ const Layout = (props) => {
                                 Улан-Удэ, Куйбышева 29
                             </p>
                             <p>
-                                <a href="mailto:muzeyrb@mail.ru"><b>muzeyrb@mail.ru</b></a>
+                                <a href="mailto:muzeyrb@mail.ru">muzeyrb@mail.ru</a>
                             </p>
                         </div>
                         <div className="txt">
-                            <p><b>Мы в социальных сетях</b></p>
+                            <p>Cоциальные сети</p>
                             <ul>
                             <li><a href="#"><Facebook/></a></li>
                             <li><a href="#"><Twitter/></a></li>
