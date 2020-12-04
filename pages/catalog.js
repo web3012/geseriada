@@ -1,12 +1,12 @@
 import Layout from "../app/layout/layout"
 
-const PageAbout = (props) => {
+const PageCatalog = (props) => {
     return (
         <Layout>
 
             <div className="wr">
                 <div className="content">
-                    О проекте
+                    Каталог
                 </div>
             </div>
 
@@ -21,4 +21,4 @@ export async function getStaticProps() {
     }
 }
 
-export default PageAbout
+export default PageCatalog
