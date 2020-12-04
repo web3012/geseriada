@@ -58,13 +58,17 @@ const Layout = (props) => {
 
                         <div className="txt txt2">
                             <p>
-                                Научные сотрудники:<br />
+                                Научные сотрудники:
+                            </p>
+                            <p>
                                 (3012) 21-43-93<br />
                                 (3012) 21-44-88<br />
                             </p>
                             <p>
-                                Вахта<br />
-                                (3012) 21-98-14
+                                Вахта:
+                            </p>
+                            <p>
+                                    (3012) 21-98-14
                             </p>
                             <p>
                                 <a href="mailto:muzeyrb@mail.ru">muzeyrb@mail.ru</a>
