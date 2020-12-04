@@ -1,5 +1,7 @@
 
 import React from 'react'
+import Head from "next/head"
+
 import SvgSitename from '../../public/img/sitename.svg'
 import SvgSearch from '../../public/img/search.svg'
 
@@ -16,6 +18,13 @@ import Adr from '../../public/img/map-marked-alt-solid.svg'
 const Layout = (props) => {
     return (
         <React.Fragment>
+            <Head>
+            <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="favicon.ico" />
+            <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon48.ico" />
+            <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon32.ico" />
+            <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon16.ico" />
+            </Head>
             <header>
                 <div id="logo"><img src="/img/logotype.png" /></div>
                 <div id="sitename"><SvgSitename /></div>
@@ -68,7 +77,7 @@ const Layout = (props) => {
                                 Вахта:
                             </p>
                             <p>
-                                    (3012) 21-98-14
+                                (3012) 21-98-14
                             </p>
                             <p>
                                 <a href="mailto:muzeyrb@mail.ru">muzeyrb@mail.ru</a>
@@ -77,11 +86,11 @@ const Layout = (props) => {
 
                         <div className="txt txt3">
                             <ul>
-                            <li><a href="#"><Facebook/></a></li>
-                            <li><a href="#"><Twitter/></a></li>
-                            <li><a href="#"><VK/></a></li>
-                            <li><a href="#"><OK/></a></li>
-                            <li><a href="#"><Youtube/></a></li>
+                                <li><a href="#"><Facebook /></a></li>
+                                <li><a href="#"><Twitter /></a></li>
+                                <li><a href="#"><VK /></a></li>
+                                <li><a href="#"><OK /></a></li>
+                                <li><a href="#"><Youtube /></a></li>
                             </ul>
                         </div>
                     </div>

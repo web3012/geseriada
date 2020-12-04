@@ -6,17 +6,26 @@ import FrontpageSlider from '../app/components/FrontpageSlider'
 const Page = (props) => {
 
     let autors = props.autors || []
+    let ref = React.useRef(null)
 
+    React.useEffect(()=>{
+        
+    }, [])
+
+// <div className="screen">
+//     <img src="/img/screen.jpg" />
+// </div>    
     return (
         <Layout>
-
-            <div className="screen">
-                <img src="/img/screen.jpg" />
+            <div class="screen">
+                <video ref={ref} width="100%" height="auto" poster="/img/screen.jpg" autoPlay muted>
+                    <source src="/mp4/DrujinaGeser.mp4" type="video/mp4" />
+                </video>
             </div>
 
             <div className="wr">
                 <div className="content">
-                    <FrontpageSlider/>
+                    <FrontpageSlider />
                 </div>
             </div>
 
