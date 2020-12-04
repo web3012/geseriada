@@ -315,12 +315,15 @@ html {
                                 margin: 30px 0 0 0;
                                 text-align: right;
                             }
+                            p.centered {
+                                text-align: center;
+                            }
                             ul {
                                 p {
                                     text-indent: 0;
                                 }
                             }
-                            .centered {
+                            div.centered {
                                 display: flex;
                                 justify-content: center;
                                 p {
