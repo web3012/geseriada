@@ -22,7 +22,7 @@ const Page = (props) => {
 // </div>    
     return (
         <Layout>
-            <div class="screen">
+            <div className="screen">
                 <video ref={ref} width="100%" height="auto" poster="/img/screen.jpg" autoPlay muted onClick={replay}>
                     <source src="/mp4/DrujinaGeser.mp4" type="video/mp4" />
                 </video>
