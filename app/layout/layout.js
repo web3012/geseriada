@@ -13,17 +13,43 @@ import OK from '../../public/img/odnoklassniki-brands.svg'
 import Youtube from '../../public/img/youtube-brands.svg'
 import Adr from '../../public/img/map-marked-alt-solid.svg'
 
-
+import { useRouter } from 'next/router'
 
 const Layout = (props) => {
+    
+    const router = useRouter()
+    let previewImage = "/img/screen.jpg"
+    let currentURL = "https://geseriada.vercel.app" + router.asPath
+
+
+    React.useState(()=>{
+        
+    }, [])
+
+
     return (
         <React.Fragment>
             <Head>
-            <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-            <link rel="icon" type="image/x-icon" href="favicon.ico" />
-            <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon48.ico" />
-            <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon32.ico" />
-            <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon16.ico" />
+                <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+                <link rel="icon" type="image/x-icon" href="favicon.ico" />
+                <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon48.ico" />
+                <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon32.ico" />
+                <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon16.ico" />
+
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charSet="utf-8" />
+                
+                <title>{props.title}</title>
+                <meta name="description" content={props.description} />
+                
+                <meta property="og:title" content={props.title} key="ogtitle" />
+                <meta property="og:description" content={props.description} key="ogdesc" />                
+
+                {/* Open Graph */}
+                <meta property="og:url" content={currentURL} key="ogurl" />
+                <meta property="og:image" content={previewImage} key="ogimage" />
+                <meta property="og:site_name" content="Гэсэриада - электронный каталог" key="ogsitename" />
+                
             </Head>
             <header>
                 <div id="logo"><img src="/img/logotype.png" /></div>
@@ -41,6 +67,7 @@ const Layout = (props) => {
                     </ul>
                 </div>
                 <div id="breadcrumbs">
+                    
                 </div>
             </header>
 
@@ -100,5 +127,7 @@ const Layout = (props) => {
         </React.Fragment>
     )
 }
+
+
 
 export default Layout

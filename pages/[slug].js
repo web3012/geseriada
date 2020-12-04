@@ -11,7 +11,7 @@ const Page = (props) => {
     let pageDescription = meta.get('description')
 
     return (
-        <Layout>
+        <Layout title={pageTitle} keywords={pageKeywords} description={pageDescription}>
             <div className="wr">
                 <div className="content">
                     <div dangerouslySetInnerHTML={{__html: content}} className="txt"></div>                    

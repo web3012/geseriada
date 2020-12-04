@@ -2,11 +2,13 @@ import Layout from "../app/layout/layout"
 
 const PageCatalog = (props) => {
     return (
-        <Layout>
+        <Layout title="Каталог авторов" keywords="" description="">
 
             <div className="wr">
                 <div className="content">
-                    Каталог
+                    <div className="txt">
+                        <h1>Каталог авторов</h1>
+                    </div>
                 </div>
             </div>
 

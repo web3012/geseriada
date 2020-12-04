@@ -21,7 +21,8 @@ const Page = (props) => {
 //     <img src="/img/screen.jpg" />
 // </div>    
     return (
-        <Layout>
+        <Layout  title="Электронный каталог Гэсэриада" keywords="" description="">
+        
             <div className="screen">
                 <video ref={ref} width="100%" height="auto" poster="/img/screen.jpg" autoPlay muted onClick={replay}>
                     <source src="/mp4/DrujinaGeser.mp4" type="video/mp4" />
