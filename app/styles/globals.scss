@@ -305,6 +305,14 @@ html {
                             margin: 0 0 -0.3em 0;
                         }
 
+                        .txt {
+                            padding: 0 40px 40px 40px;
+                            h1:first-child {
+                                margin-top: 0;
+                            }
+
+                        }
+
                     }
                     @media (min-width: 576px) {
                         .content {

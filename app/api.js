@@ -1,8 +1,9 @@
 import { join } from 'path'
+import showdown from 'showdown'
 
 const datadir = join(process.cwd(), 'public', '_data')
 
-function matter(source){
+const matter = async (source) => {
     let a = source.split('\n')
     let isParam = null
     
@@ -10,35 +11,45 @@ function matter(source){
     let content = []
 
     for(let s of a){
-        s = s.trim()
-        if(s){
-            if(s === '---'){
-                if(isParam === null) {
-                    isParam = true
-                    continue
-                }
-                if(isParam === true) {
-                    isParam = false
-                    continue
-                }
-            }
-            if(isParam === true){
-                let name = s.substring(0, s.search(':')).trim()
-                let value = s.substring(s.search(':') + 1).trim()
-                if(name){
-                    param.push([name, value])
-                }
+
+        if(s.trim() === '---'){
+            if(isParam === null) {
+                isParam = true
                 continue
             }
-            if(isParam === false){
-                content.push(s)
+            if(isParam === true) {
+                isParam = false
                 continue
             }
         }
+        if(isParam === true){
+            let name = s.substring(0, s.search(':')).trim()
+            let value = s.substring(s.search(':') + 1).trim()
+            if(name){
+                param.push([name, value])
+            }
+            continue
+        }
+
+        if(isParam === false){
+            content.push(s)
+            continue
+        }
+        
     }
+
+    
+    const converter = new showdown.Converter({
+        noHeaderId: true
+    })
+    
+
+    content = content.join("\n")
+    content = converter.makeHtml(content)
+
     return {
-        data: param
-        //content
+        data: param,
+        content
     }
 }
 
@@ -121,5 +132,13 @@ export function getAutor(slug) {
         data: data.data,
         fotos: list
     }
+}
 
+export async function getMD(filename) {
+    const fs = require('fs')
+    const iconv = require('iconv-lite')
+    let data = fs.readFileSync(`${datadir}/${filename}`)
+    data = iconv.decode(data, "win1251")
+    data = await matter(data)
+    return data
 }
