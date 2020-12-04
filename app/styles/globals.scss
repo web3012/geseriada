@@ -75,10 +75,16 @@ html {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    margin: 20px 0 0 0;
+                    margin: 0;
+                    padding: 20px 0 0 0;
                     img {
                         width: 90px;
                     }
+                    &:hover {
+                        background: #EDE5DE;
+                        cursor: pointer;
+                    }
+
                     @media (min-width: 576px) {
                         img {
                             width: 120px;
@@ -91,13 +97,14 @@ html {
                         }
                     }
                     @media (min-width: 992px) {
+                        padding: 20px 0 0 0;
                         img {
                             width: 140px;
                             margin: 0 0 20px 0;
                         }
                     }
                     @media (min-width: 1200px) {
-                        margin: 20px 0 20px 0;
+                        padding: 20px 0 20px 0;
                         img {
                             width: 160px;
                             margin: 0;
@@ -156,7 +163,7 @@ html {
                     }
 
                     &:hover {
-                        background: #fff;
+                        background: #EDE5DE;
                         cursor: pointer;
                     }
 
@@ -204,11 +211,20 @@ html {
                         align-items: center;
                         justify-content: center;
                         li {
-                            margin: 5px;
+                            
                             font-size: 1em;
                             font-weight: 400;
-                            color: #fff;
+                            
                             white-space: nowrap;
+                            a {
+                                padding: 5px 10px;
+                                text-decoration: none;
+                                color: #FAF2E3;
+                                &:hover {
+                                    background: #5A5850;
+                                    color: #fff;
+                                }
+                            }
                         }
                     }
                     @media (min-width: 576px) {

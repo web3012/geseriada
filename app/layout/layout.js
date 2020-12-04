@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Head from "next/head"
-
+import Link from "next/link"
 import SvgSitename from '../../public/img/sitename.svg'
 import SvgSearch from '../../public/img/search.svg'
 
@@ -34,10 +34,10 @@ const Layout = (props) => {
                 </div>
                 <div id="menu">
                     <ul className="menu">
-                        <li>ГЛАВНАЯ</li>
-                        <li>КАТАЛОГ</li>
-                        <li>ИСТОРИЯ КОЛЛЕКЦИИ</li>
-                        <li>О ПРОЕКТЕ</li>
+                        <li><Link href="#"><a>ГЛАВНАЯ</a></Link></li>
+                        <li><Link href="#"><a>КАТАЛОГ</a></Link></li>
+                        <li><Link href="#"><a>ИСТОРИЯ КОЛЛЕКЦИИ</a></Link></li>
+                        <li><Link href="#"><a>О ПРОЕКТЕ</a></Link></li>
                     </ul>
                 </div>
                 <div id="breadcrumbs">
