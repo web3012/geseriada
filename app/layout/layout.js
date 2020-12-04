@@ -43,12 +43,20 @@ const Layout = (props) => {
             <footer>
                 <div className="wr">
                     <div className="content">
-                        <div className="txt">
+                        <div className="txt txt1">
                             <p>&copy; 2020</p>
                             <p>
                                 Национальный музей<br />
                                 Республики Бурятия
                             </p>
+                            <p>
+                                670000, Республика Бурятия<br />
+                                Улан-Удэ, Куйбышева 29
+                            </p>
+
+                        </div>
+
+                        <div className="txt txt2">
                             <p>
                                 Научные сотрудники:<br />
                                 (3012) 21-43-93<br />
@@ -58,23 +66,12 @@ const Layout = (props) => {
                                 Вахта<br />
                                 (3012) 21-98-14
                             </p>
-
-                        </div>
-
-                        <div className="txt">
-                            <p>
-                                <Adr/>
-                            </p>
-                            <p>
-                                670000, Республика Бурятия<br />
-                                Улан-Удэ, Куйбышева 29
-                            </p>
                             <p>
                                 <a href="mailto:muzeyrb@mail.ru">muzeyrb@mail.ru</a>
                             </p>
                         </div>
-                        <div className="txt">
-                            <p>Cоциальные сети</p>
+
+                        <div className="txt txt3">
                             <ul>
                             <li><a href="#"><Facebook/></a></li>
                             <li><a href="#"><Twitter/></a></li>

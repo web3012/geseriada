@@ -327,10 +327,14 @@ html {
                         margin: 0 10px;
                         .txt {
                             margin: 10px;
+                            p.big {
+                                font-size: 1.4em;
+                                line-height: 1.2em;
+                                font-weight: 500;
+                            }
                             p:first-child {
                                 margin-top: 0;
                             }
-
                             ul {
                                 list-style: none;
                                 margin: 0 0 40px 0; padding: 0;
@@ -347,7 +351,7 @@ html {
                                 font-weight: 600;
                             }
                             a {
-                                padding: 5px;
+                                padding: 0 10px 0 0;
                                 margin: 0 6px 0 0;
                                 display: inline-block;
                                 color: #f1f1f1;
@@ -371,10 +375,14 @@ html {
                         .content {
                             display: flex;
                             flex-wrap: wrap;
-                            justify-content: space-between;
+                            justify-content: space-around;
                             margin: 0 60px;
+                            white-space: nowrap;
+
                             .txt {
-                                flex:1 1 240px;
+                                ul {
+                                    justify-content: center;
+                                }    
                             }
                         }
                     }
@@ -390,13 +398,8 @@ html {
                     }
                     @media (min-width: 1600px) {
                         .content {
-                            font-size: 1.2em;
-                            margin: 0 200px;
-                            .txt {
-                                flex:1 1 240px;
-                            }
+                            font-size: 1.2rem;
                         }
-
                     }
 
 
