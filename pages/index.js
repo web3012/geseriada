@@ -88,21 +88,21 @@ export default Page
 
 export async function getStaticProps() {
 
-    const autors = getAllAutors()
+    // const autors = getAllAutors()
 
-    let list = []
-    for (let el of autors) {
-        let dir = el.dir
-        let autor = getAutor(dir)
-        list.push(autor)
-    }
+    // let list = []
+    // for (let el of autors) {
+    //     let dir = el.dir
+    //     let autor = getAutor(dir)
+    //     list.push(autor)
+    // }
 
     // console.log("list", list)
     // console.log("list", autors)
 
     return {
         props: {
-            autors: list
+            // autors: list
         }
     }
 }

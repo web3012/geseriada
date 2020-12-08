@@ -9,11 +9,11 @@ module.exports = {
 
         // Fixes npm packages that depend on `fs` module
         // Решение проблемы: Module not found: Can't resolve 'fs'
-        // if (!isServer) {
-        //     config.node = {
-        //         fs: 'empty'
-        //     }
-        // }
+        if (!isServer) {
+            config.node = {
+                fs: 'empty'
+            }
+        }
         return config
     }
 }
