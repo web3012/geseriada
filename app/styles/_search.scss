@@ -1,0 +1,96 @@
+.searchResults {
+    font-size: 1rem;
+    text-align: left;
+    .items {
+        width: 100%;
+        
+        .item {
+            background: #f1f1f1;
+            margin:0 0 1px 0; padding: 5px;     
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .item-img {
+                padding: 10px;
+                
+            }
+            .item-txt {
+                flex:1 0 240px;
+                padding: 10px;
+            }
+
+            &:nth-child(odd){
+                background: #FFFAED;
+            }
+            &:nth-child(even){
+                background: #E8D8BC;
+            }
+
+        }
+    }
+}
+.searchForm {
+
+    text-align: left;
+    .grid {
+        
+        display: block;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "title title title"
+            "authors dates techno"
+        ;
+
+        section {
+            margin: 1px;
+            p {
+                text-indent: 0 !important;
+            }
+            a {
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+            input {
+                margin: 0 5px 0 0;
+                height: 30px;
+                width: 100%;
+                max-width: 400px;
+                font-size: 18px;
+                line-height: 18px;
+            }
+            button {
+                margin: 0;
+                height: 30px;
+                font-size: 18px;
+                line-height: 18px;
+            }
+            ul {
+                text-align: left;
+            }
+            &.title  {
+                grid-area: title;
+                min-height: 60px;
+            }
+            &.authors  {
+                grid-area: authors;
+            }
+            &.dates  {
+                grid-area: dates;
+            }
+            &.techno  {
+                grid-area: techno;
+            }
+        }
+
+        @media (min-width: 768px) {
+            display: grid;
+        }
+    
+    
+    }
+
+
+}

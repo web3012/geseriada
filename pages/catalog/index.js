@@ -1,13 +1,7 @@
 import Layout from "../../app/layout/layout"
-import CatalogTable from "../../app/components/Catalog/table"
 import { getAllAuthors, getAuthor } from '../../app/api'
 
 const PageCatalog = (props) => {
-
-    // console.log("", props.authors)
-
-    // let meta = new Map(props.authors.data)
-
 
     return (
         <Layout title="Каталог авторов" keywords="" description="">
@@ -16,7 +10,8 @@ const PageCatalog = (props) => {
                 <div className="content">
                     <div className="txt">
                         <h1>Каталог работ</h1>
-                        <CatalogTable/>
+
+                        
                     </div>
                 </div>
             </div>
@@ -29,6 +24,7 @@ export async function getStaticProps() {
 
     const authors = await getAllAuthors()
     
+
     let pictures = [] //все фото списком
     let list = []   //все авторы списком
 
@@ -74,15 +70,12 @@ export async function getStaticProps() {
     // ============================================
     let picAuthors = []   //все возможные авторы
     for (let el of authors) {
-        // picAuthors.push({
-        //     dir: el.dir,
-        //     fio: el.meta.фио
-        // })
-
-        console.log("el", el)
-        
+        picAuthors.push({
+            dir: el.dir,
+            fio: el.meta.фио
+        })
     }
-    console.log("picAuthors", picAuthors)
+    // console.log("picAuthors", picAuthors)
 
     // ============================================
 
@@ -90,7 +83,10 @@ export async function getStaticProps() {
     return {
         props: {
             authors: list,
-            pictures
+            pictures,
+            picAuthors,
+            picTechnics,
+            picYears
         }
     }
 }

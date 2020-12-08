@@ -48,7 +48,7 @@ const matter = async (source) => {
     content = converter.makeHtml(content)
 
     return {
-        data: Object.fromEntries(new Map(param)) || {},
+        meta: Object.fromEntries(new Map(param)) || {},
         content
     }
 }
@@ -64,10 +64,13 @@ export async function getAllAuthors() {
 
     let res = await Promise.all(files.map(async (filename) => {
         try {
-            let data = fs.readFileSync(filename)
-            data = iconv.decode(data, "win1251")
-            data = await matter(data)
-
+            let txt = fs.readFileSync(filename)
+            txt = iconv.decode(txt, "win1251")
+            let r = await matter(txt)
+            let data = {}
+            data.meta = r.meta
+            data.content = r.content
+            
             let found = filename.match(/_data\/authors\/(.*)\//i)
             if (found) {
                 data.dir = found[1]
@@ -78,16 +81,11 @@ export async function getAllAuthors() {
 
         } catch (e) {
             console.log("Error>>>>>>>>", e)
+            return {}            
         }
     }))
 
-    return {
-        dir: data.dir,
-        foto450: data.foto450,
-        foto900: data.foto900,
-        meta: data.data,
-        content: data.content
-    }
+    return res
 }
 
 export async function getAuthor(slug) {
@@ -101,6 +99,7 @@ export async function getAuthor(slug) {
     let data = {}
 
     data = await matter(txt)
+    data.fio = data.meta.фио || ""
     data.dir = slug
     data.foto450 = `/_data/authors/${slug}/foto_450.png`
     data.foto900 = `/_data/authors/${slug}/foto_900.png`
@@ -112,7 +111,6 @@ export async function getAuthor(slug) {
             txt = iconv.decode(txt, "win1251")
             let foto = await matter(txt)
 
-
             let found = filename.match(/\/img\/(.*)\.txt/i)
             let img = ""
             let _img = ""
@@ -120,11 +118,15 @@ export async function getAuthor(slug) {
                 img = `/_data/authors/${slug}/img/${found[1]}.jpg`
                 _img = `${found[1]}`
             }
+
             return {
-                dir: slug,
+                author: { 
+                    dir: slug,
+                    fio: data.fio
+                },
                 img,
                 _img,
-                meta: foto.data,
+                meta: foto.meta,
                 content: foto.content
             }
 
@@ -134,14 +136,8 @@ export async function getAuthor(slug) {
     }))
 
     //console.log("list", list)
-    return {
-        dir: data.dir,
-        foto450: data.foto450,
-        foto900: data.foto900,
-        meta: data.data,
-        content: data.content,
-        pictures: list
-    }
+    data.pictures = list
+    return data
 }
 
 export async function getMD(filename) {

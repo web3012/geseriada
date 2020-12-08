@@ -2,7 +2,7 @@ import Layout from "../app/layout/layout"
 import { getMD } from "../app/api"
 
 const Page = (props) => {
-    let data = props.data || []
+    let data = props.meta || []
     let content = props.content || ""
 
     let meta = new Map(data)
@@ -31,7 +31,7 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            data: page.data,
+            data: page.meta,
             content: page.content
         }
     }

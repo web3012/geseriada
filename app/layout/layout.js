@@ -16,14 +16,14 @@ import Adr from '../../public/img/map-marked-alt-solid.svg'
 import { useRouter } from 'next/router'
 
 const Layout = (props) => {
-    
+
     const router = useRouter()
     let previewImage = "/img/screen.jpg"
     let currentURL = "https://geseriada.vercel.app" + router.asPath
 
 
-    React.useState(()=>{
-        
+    React.useState(() => {
+
     }, [])
 
 
@@ -38,23 +38,28 @@ const Layout = (props) => {
 
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
-                
+
                 <title>{props.title}</title>
                 <meta name="description" content={props.description} />
-                
+
                 <meta property="og:title" content={props.title} key="ogtitle" />
-                <meta property="og:description" content={props.description} key="ogdesc" />                
+                <meta property="og:description" content={props.description} key="ogdesc" />
 
                 {/* Open Graph */}
                 <meta property="og:url" content={currentURL} key="ogurl" />
                 <meta property="og:image" content={previewImage} key="ogimage" />
                 <meta property="og:site_name" content="Гэсэриада - электронный каталог" key="ogsitename" />
-                
+
             </Head>
             <header>
                 <div id="logo"><img src="/img/logotype.png" /></div>
                 <div id="sitename"><SvgSitename /></div>
-                <div id="search">
+                <div id="search" onClick={() => {
+                    router.push({
+                        pathname: "/search",
+                        query: { sts: 1}
+                    })
+                }}>
                     <span>ПОИСК</span>
                     <SvgSearch />
                 </div>
@@ -67,7 +72,7 @@ const Layout = (props) => {
                     </ul>
                 </div>
                 <div id="breadcrumbs">
-                    
+
                 </div>
             </header>
 
