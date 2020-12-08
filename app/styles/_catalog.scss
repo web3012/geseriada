@@ -1,0 +1,58 @@
+.page-catalog {
+    .authors {
+        text-align: left;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "a1 a2 a3"
+            "a4 a5 a6"
+            "a7 a8 a9";
+
+        .a {
+            position: relative;
+            background-color: #f1f1f1;
+            margin: 20px;
+
+            img {
+                width: 100%;
+            }
+            .desc {
+                position: absolute;
+                bottom: 0;
+                background: rgba(123,124,117, 0.8);
+                width: 100%;
+                min-height: 30%;
+
+                color: #f1f1f1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h2 {
+                    padding: 0;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    margin: 20px 20px 10px 20px;
+                }
+                p {
+                    font-size: 1rem;
+                    text-indent: 0;
+                    text-align: center;
+                    margin: 0 20px 10px 20px;
+                }
+            }
+        }
+        .a1 { grid-area: a1;}
+        .a2 { grid-area: a2;}
+        .a3 { grid-area: a3;}
+        .a4 { grid-area: a4;}
+        .a5 { grid-area: a5;}
+        .a6 { grid-area: a6;}
+        .a7 { grid-area: a7;}
+        .a8 { grid-area: a8;}
+        .a9 { grid-area: a9;}
+            
+    }
+}

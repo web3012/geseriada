@@ -9,9 +9,35 @@ const PageCatalog = (props) => {
             <div className="wr">
                 <div className="content">
                     <div className="txt">
-                        <h1>Каталог работ</h1>
+                        <h1>Каталог</h1>
 
-                        
+                        <div className="page-catalog">
+                            <div className="authors">
+                                {props.authors && props.authors.map((el, i) => {
+                                    let dir = el.dir || ""
+                                    let foto450 = el.foto450 || ""
+                                    let foto900 = el.foto900 || ""
+                                    let fio = el.meta.фио || ""
+                                    let year = el.meta.год || ""
+                                    let titul = el.meta.титул || ""
+                                    let count = el.pictures.length
+                                    
+                                    return (
+                                        <div key={i} className={`a a${i+1}`}>
+                                            <img src={foto450}/>
+                                            <div className="desc">
+                                                <h2>{fio}</h2>
+                                                <p>{year}</p>
+                                                <p>{titul}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -23,7 +49,7 @@ const PageCatalog = (props) => {
 export async function getStaticProps() {
 
     const authors = await getAllAuthors()
-    
+
 
     let pictures = [] //все фото списком
     let list = []   //все авторы списком
@@ -33,7 +59,7 @@ export async function getStaticProps() {
         let author = await getAuthor(dir)
         let _pictures = []
 
-        for(let pic of author.pictures){
+        for (let pic of author.pictures) {
             pictures.push(pic)
             _pictures.push(pic)
         }
@@ -41,21 +67,13 @@ export async function getStaticProps() {
         list.push(author)
     }
 
-    
+
     // ============================================
     let picTechnics = 'Акварель, акватинта, гравюра на пластике, гуашь, карандаш, линогравюра, офсет, смешанная техника, тушь'   //все возможные техники
     picTechnics = picTechnics.toLowerCase()
     picTechnics = picTechnics.split(',')
-    picTechnics = picTechnics.map(s=>s.trim())
+    picTechnics = picTechnics.map(s => s.trim())
     picTechnics.sort()
-    // console.log("picTechnics", picTechnics)
-    // for (let el of pictures) {
-    //     let tech = el.meta.техника || ""
-    //     tech = tech.split(',')
-    //     tech = tech.map(s=>s.trim())
-    //     tech = new Set(tech)
-    //     console.log("Tech", tech, el.img)
-    // }
 
     // ============================================
     let picYears = new Set()   //все возможные года
@@ -65,7 +83,6 @@ export async function getStaticProps() {
     }
     picYears = [...picYears]
     picYears.sort()
-    //console.log("Years", picYears)
 
     // ============================================
     let picAuthors = []   //все возможные авторы
@@ -75,11 +92,8 @@ export async function getStaticProps() {
             fio: el.meta.фио
         })
     }
-    // console.log("picAuthors", picAuthors)
 
     // ============================================
-
-    //console.log("%%%%%", list[0])
     return {
         props: {
             authors: list,
