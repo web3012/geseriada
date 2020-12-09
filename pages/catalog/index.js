@@ -70,7 +70,6 @@ export async function getStaticProps() {
 
     const authors = await getAllAuthors()
 
-
     let pictures = [] //все фото списком
     let list = []   //все авторы списком
 

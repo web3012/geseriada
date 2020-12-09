@@ -302,14 +302,15 @@ html {
                             padding: 0 40px 40px 40px;
 
 
-                            h1:first-child {
+                            h1 {
                                 font-weight: 300;
-                                font-size: 2em;
                                 text-align: center;    
                                 line-height: 1em;
                             }
-                            p {
-                                text-indent: 2em;
+                            h2 {
+                                font-weight: 300;
+                                text-align: center;    
+                                line-height: 1em;
                             }
                             p.author {
                                 margin: 30px 0 0 0;
@@ -335,6 +336,8 @@ html {
                             
                             @import "./search";
                             @import "./catalog";
+                            @import "./author";
+                            @import "./pic";
 
                         }
 
