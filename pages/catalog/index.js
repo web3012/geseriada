@@ -1,7 +1,9 @@
 import Layout from "../../app/layout/layout"
 import { getAllAuthors, getAuthor } from '../../app/api'
+import { useRouter } from 'next/router'
 
 const PageCatalog = (props) => {
+    const router = useRouter()
 
     return (
         <Layout title="Каталог авторов" keywords="" description="">
@@ -16,20 +18,38 @@ const PageCatalog = (props) => {
                                 {props.authors && props.authors.map((el, i) => {
                                     let dir = el.dir || ""
                                     let foto450 = el.foto450 || ""
-                                    let foto900 = el.foto900 || ""
                                     let fio = el.meta.фио || ""
+                                    fio = fio.split(" ")
+                                    fio = fio[0] + ' ' + fio[1] + '<br/>' + fio[2]
                                     let year = el.meta.год || ""
                                     let titul = el.meta.титул || ""
                                     let count = el.pictures.length
-                                    
+
                                     return (
-                                        <div key={i} className={`a a${i+1}`}>
-                                            <img src={foto450}/>
-                                            <div className="desc">
-                                                <h2>{fio}</h2>
-                                                <p>{year}</p>
-                                                <p>{titul}</p>
+                                        <div key={i} className={`a a${i + 1}`} ontouchstart={()=>{}} onClick={()=>{
+                                            router.push({
+                                                pathname: `/author/${dir}`
+                                            }).then(() => window.scrollTo(0, 0))                                    
+                                        }}>
+                                            <div class="flipper">
+                                                <div class="front">
+                                                    <img src={foto450} />
+                                                    <div className="desc">
+                                                        <div dangerouslySetInnerHTML={{ __html: fio }} />
+                                                    </div>
+                                                </div>
+                                                <div class="back">
+                                                    <div className="fio" dangerouslySetInnerHTML={{ __html: fio }} />
+                                                    <div>{year}</div>
+                                                    <div>{titul}</div>
+                                                    <div>
+                                                        <span>Количество работ: {count}</span>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
+                                            
+
                                         </div>
                                     )
                                 })}

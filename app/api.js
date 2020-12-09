@@ -74,8 +74,7 @@ export async function getAllAuthors() {
             let found = filename.match(/_data\/authors\/(.*)\//i)
             if (found) {
                 data.dir = found[1]
-                data.foto450 = `/_data/authors/${found[1]}/foto_450.png`
-                data.foto900 = `/_data/authors/${found[1]}/foto_900.png`
+                data.foto450 = `/_data/authors/${found[1]}/_foto_450.png`
             }
             return data
 
@@ -101,8 +100,7 @@ export async function getAuthor(slug) {
     data = await matter(txt)
     data.fio = data.meta.фио || ""
     data.dir = slug
-    data.foto450 = `/_data/authors/${slug}/foto_450.png`
-    data.foto900 = `/_data/authors/${slug}/foto_900.png`
+    data.foto450 = `/_data/authors/${slug}/_foto_450.png`
 
     let fotos = glob.sync(`${datadir}/authors/${slug}/img/*.txt`, {})
     let list = await Promise.all(fotos.map(async (filename) => {
