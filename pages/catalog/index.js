@@ -6,7 +6,7 @@ const PageCatalog = (props) => {
     const router = useRouter()
 
     return (
-        <Layout title="Каталог" keywords="" description="">
+        <Layout title="Каталог" keywords="" description="" breadcrumbs={[{title:"Каталог"}]}>
 
             <div className="wr">
                 <div className="content">

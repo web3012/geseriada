@@ -253,7 +253,14 @@ html {
                 #breadcrumbs {
                     grid-area: breadcrumbs;
                     min-height: 20px;
+                    line-height: 20px;
                     background: #F3E8D4;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                .breadcrumbs-active {
+                    background: #DED3BF !important;
                 }
             }
 
@@ -299,18 +306,18 @@ html {
 
                         .txt {
                             text-align: justify;
-                            padding: 0 40px 40px 40px;
+                            padding: 20px 40px 40px 40px;
 
 
                             h1 {
                                 font-weight: 300;
                                 text-align: center;    
-                                line-height: 1em;
+                                line-height: 1.1em;
                             }
                             h2 {
                                 font-weight: 300;
                                 text-align: center;    
-                                line-height: 1em;
+                                line-height: 1.1em;
                             }
                             p.author {
                                 margin: 30px 0 0 0;
@@ -327,6 +334,10 @@ html {
                                     text-indent: 0;
                                 }
                             }
+
+                            a {
+                                color: #3E3931;
+                            }
                             div.centered {
                                 display: flex;
                                 justify-content: center;
@@ -335,6 +346,12 @@ html {
                                     display: inline;
                                     margin: 0 auto;
                                 }
+                            }
+
+                            hr {
+                                border: 0;
+                                background: #646057;
+                                height: 1px;
                             }
                             
                             @import "./search";

@@ -1,0 +1,33 @@
+.wr {
+    ul {
+        position: relative;
+        list-style: none;
+        margin: 2px 40px 0 40px;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1em;
+
+        li {
+            position: relative;
+            display: block;
+            margin: 0 23px 0 0;
+            padding: 0;
+            
+            a, span {
+                color: #646057;
+            }
+        }
+
+        li a::after { 
+            content: ">"; 
+            display: block; 
+            width: 0; 
+            height: 0;
+            position: absolute;
+            right: -10px;
+            top: 0;
+            z-index: 2; 
+          }        
+    }
+}

@@ -1,7 +1,43 @@
 .page-pic {
-
-    img {
-        width: 100%;
+    display: block;
+    grid-template-columns: 30% auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "title title"
+        "img desc"
+    ;
+    @media (min-width: 768px) {
+        display: grid;
     }
+    .title  {
+        grid-area: title;
+    }
+    .img  {
+        grid-area: img;
+        img {
+            width: 100%;
+            border: 1px solid #646057;
+        }
+    }
+    .desc  {
+        grid-area: desc;
 
+        padding: 20px 0;
+
+        p:first-child {
+            margin-top: 0;
+        }
+        .meta {
+            p {
+                margin: 2px 0;
+            }
+        }
+        p.litra {
+            font-size: 0.8em;
+        }
+        @media (min-width: 768px) {
+            padding: 0 0 0 40px;
+        }
+
+    }
 }

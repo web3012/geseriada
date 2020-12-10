@@ -2,18 +2,18 @@ import Layout from "../app/layout/layout"
 import { getMD } from "../app/api"
 
 const Page = (props) => {
-    let data = props.meta || []
+    let meta = props.meta || {}
     let content = props.content || ""
 
-    let meta = new Map(data)
-    let pageTitle = meta.get('title')
-    let pageKeywords = meta.get('keywords')
-    let pageDescription = meta.get('description')
+    let pageTitle = meta.title || ""
+    let pageKeywords = meta.keywords || ""
+    let pageDescription = meta.description || ""
 
     return (
-        <Layout title={pageTitle} keywords={pageKeywords} description={pageDescription}>
+        <Layout title={pageTitle} keywords={pageKeywords} description={pageDescription}  breadcrumbs={[{title:meta.title}]}>
             <div className="wr">
                 <div className="content">
+                    
                     <div dangerouslySetInnerHTML={{__html: content}} className="txt txt-worded"></div>                    
                 </div>
             </div>
@@ -27,11 +27,12 @@ export async function getStaticProps(context) {
     let slug = context.params.slug
     let page = await getMD(`pages/${slug}.md`)
 
-    let content = page.content
+    //console.log("page", page)
+    
 
     return {
         props: {
-            data: page.meta,
+            meta: page.meta,
             content: page.content
         }
     }

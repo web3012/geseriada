@@ -12,6 +12,7 @@ import VK from '../../public/img/vk-brands.svg'
 import OK from '../../public/img/odnoklassniki-brands.svg'
 import Youtube from '../../public/img/youtube-brands.svg'
 import Adr from '../../public/img/map-marked-alt-solid.svg'
+import Breadcrumbs from "../components/Breadcrumbs"
 
 import { useRouter } from 'next/router'
 
@@ -21,12 +22,15 @@ const Layout = (props) => {
     let previewImage = "/img/screen.jpg"
     let currentURL = "https://geseriada.vercel.app" + router.asPath
 
-
     React.useState(() => {
 
     }, [])
 
-
+    let breadcrumbs_class = "breadcrumbs"
+    let breadcrumbs = props.breadcrumbs || []
+    if(breadcrumbs.length > 0){
+        breadcrumbs_class = breadcrumbs_class + " breadcrumbs-active"
+    }
     return (
         <React.Fragment>
             <Head>
@@ -71,8 +75,8 @@ const Layout = (props) => {
                         <li><Link href="/about"><a>О ПРОЕКТЕ</a></Link></li>
                     </ul>
                 </div>
-                <div id="breadcrumbs">
-
+                <div id="breadcrumbs" className={breadcrumbs_class}>
+                    <Breadcrumbs path = {breadcrumbs}/>
                 </div>
             </header>
 

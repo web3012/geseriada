@@ -125,7 +125,7 @@ const PageCatalog = (props) => {
     let inputValue = type === "title" ? value : ""
 
     return (
-        <Layout title="Поиск" keywords="" description="">
+        <Layout title="Поиск" keywords="" description="" breadcrumbs={[{title:"Поиск"}]}>
 
             <div className="wr">
                 <div className="content">
@@ -140,10 +140,10 @@ const PageCatalog = (props) => {
                                         <div key={i} className="item">
                                             <div className="item-img"><img src={`/_data/w120/${el._img}.jpg`} width="120" title={el.meta.название}/></div>
                                             <div className="item-txt">
-                                                Название: {el.meta.название}<br />
-                                                Автор: {el.author.fio}<br />
-                                                Год: {el.meta.год}<br />
-                                                Техника: {el.meta.техника}<br />
+                                                <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
+                                                <p>Автор: <Link href={`/author/${el.author.dir}`}><a>{el.author.fio}</a></Link></p>
+                                                <p>Год: {el.meta.год}</p>
+                                                <p>Техника: {el.meta.техника}</p>
                                             </div>
                                         </div>
                                     )

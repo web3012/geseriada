@@ -1,6 +1,7 @@
 import Layout from "../../app/layout/layout"
 import { getAllAuthors, getAuthor } from '../../app/api'
 import { useRouter } from 'next/router'
+import Link from "next/link"
 
 const PageAuthor = (props) => {
 
@@ -9,10 +10,11 @@ const PageAuthor = (props) => {
     let author = props.author || {}
 
     return (
-        <Layout>
+        <Layout breadcrumbs={[{url:"/catalog", title:"Каталог"}, {title:author.fio}]}>
             <div className="wr">
                 <div className="content">
                     <div className="txt">
+                        
 
                         <div className="page-author">
                             <div className="foto">
@@ -30,17 +32,21 @@ const PageAuthor = (props) => {
                                 <div dangerouslySetInnerHTML={{ __html: author.content }} />
                             </div>
                             <div className="pics">
-                                <h4>Работы автора</h4>
-
+                                <hr/>
                                 <div className="items">
                                 {author.pictures && author.pictures.map((el,i)=>{
                                     return (
-                                        <div className="item">
-                                            <img src={`/_data/w120/${el._img}.jpg`}  onClick={()=>{
-                                                router.push({
-                                                    pathname: `/author/${el.author.dir}/${el._img}`
-                                                }).then(() => window.scrollTo(0, 0))                                    
-                                            }}/>
+                                        <div key={i} className="item">
+                                            <div className="item-img"><img src={`/_data/w120/${el._img}.jpg`} width="120" title={el.meta.название}/></div>
+                                            <div className="item-txt">
+                                                <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
+                                                <p>Год: {el.meta.год}</p>
+                                                <p>Инвентарный номер: Г-{el.meta.код}</p>
+                                                <p>Подписи на изображении: {el.meta['подписи на изображении']}</p>
+                                                <p>Поступление: {el.meta.поступление}</p>
+                                                <p>Размер: {el.meta.размер}</p>
+                                                <p>Техника: {el.meta.техника}</p>
+                                            </div>
                                         </div>
                                     )
                                 })}
@@ -60,7 +66,6 @@ export async function getStaticProps(context) {
 
     let slug = context.params.slug
     let author = await getAuthor(slug)
-    
 
     return {
         props: {
