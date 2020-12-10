@@ -70,15 +70,19 @@ const Layout = (props) => {
                     <SvgSearch />
                 </div>
                 <div id="menu">
+
                     <ul className="menu">
                         <li><Link href="/"><a>ГЛАВНАЯ</a></Link></li>
                         <li><Link href="/catalog"><a>КАТАЛОГ</a></Link></li>
                         <li><Link href="/history"><a>ИСТОРИЯ КОЛЛЕКЦИИ</a></Link></li>
                         <li><Link href="/about"><a>О ПРОЕКТЕ</a></Link></li>
                     </ul>
+                    
                 </div>
                 <div id="breadcrumbs" className={breadcrumbs_class}>
+                    
                     <Breadcrumbs path = {breadcrumbs}/>
+                    
                 </div>
             </header>
 

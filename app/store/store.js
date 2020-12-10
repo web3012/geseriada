@@ -2,6 +2,8 @@ const initialState = {
 
     title: null,
 
+    soundID: null
+
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +12,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 title: action.title
+            }
+        case 'SET_SOUND_ID':
+            return {
+                ...state,
+                soundID: action.id
             }
         default:
             return state

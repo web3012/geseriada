@@ -1,0 +1,24 @@
+.wr {
+    z-index: 999;
+    position: absolute;
+    top:10px; left:10px;
+    
+    width: 20px;
+    height: 20px;
+    background: rgba(255,255,255,0.4);
+    color: #4D4B46;
+    border-radius: 50%;
+
+    font-family: tahoma;
+    padding: 5px;
+    font-size: 0.7em;
+    line-height: 1em;
+
+    
+
+    &:hover {
+        cursor: pointer;
+        background: rgba(255,255,255,0.8);
+        color: #272421;
+    }
+}

@@ -196,6 +196,7 @@ html {
                 }
 
                 #menu {
+                    position: relative;
                     grid-area: menu;
                     display: flex;
                     flex-direction: column;
@@ -252,6 +253,7 @@ html {
                     }
                 }
                 #breadcrumbs {
+                    position: relative;
                     grid-area: breadcrumbs;
                     min-height: 20px;
                     line-height: 20px;
@@ -275,6 +277,7 @@ html {
                 
 
                 .screen {
+                    position: relative;
                     margin: 1px auto;
                     width: 100%;
                     min-height: 20px;
