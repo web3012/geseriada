@@ -6,7 +6,7 @@ const PageCatalog = (props) => {
     const router = useRouter()
 
     return (
-        <Layout title="Каталог авторов" keywords="" description="">
+        <Layout title="Каталог" keywords="" description="">
 
             <div className="wr">
                 <div className="content">
