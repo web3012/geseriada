@@ -1,0 +1,30 @@
+.items {
+    width: 100%;
+}
+.item {
+    width: 100%;
+    margin:0 0 1px 0; padding: 5px;     
+
+    display: flex;
+    flex-wrap: wrap;
+    
+    line-height: 1.1em;
+
+    &:nth-child(odd){
+        background: #FFFAED;
+    }
+    &:nth-child(even){
+        background: #E8D8BC;
+    }
+
+}
+.img {
+    padding: 10px;
+}
+.txt {
+    flex:1 0 240px;
+    padding: 10px;
+    p {
+        margin:5px;
+    }
+}

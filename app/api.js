@@ -153,3 +153,14 @@ export async function getMD(filename) {
     return data
 }
 
+export async function getTechniques() {
+    // ============================================
+    let list = 'Акварель, акватинта, гравюра на пластике, гуашь, карандаш, линогравюра, офсет, смешанная техника, тушь'   //все возможные техники
+    list = list.toLowerCase()
+    list = list.split(',')
+    list = await Promise.all(list.map(s => s.trim()))
+    list.sort()
+    return list
+}
+
+

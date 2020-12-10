@@ -1,5 +1,52 @@
 .page-catalog {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    .items {
+        flex:1 0 240px;
+        margin: 20px;
+        margin-bottom: 20px;
+    }
+
+    .item {
+        text-align: left;
+        padding: 6px;
+        h4 {
+            margin:0;
+        }
+
+        &:nth-child(odd){
+            //background: #FFFAED;
+        }
+        &:nth-child(even){
+            background: #EDDDCD;
+        }
+
+
+
+    }   
+    .item-years {
+        ._wr {
+            margin:0 auto;
+            max-width: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            a {
+                display: block;
+                padding: 5px;
+                background: #F3E8D4;
+                margin: 5px;
+
+            }
+        }
+    }
+
+
     .authors {
+        margin: 20px 0;
+        width: 100%;
         text-align: left;
         display: grid;
         grid-template-columns: auto;
@@ -38,6 +85,8 @@
         .a {
             width: 225px;
             height: 300px;
+            
+            
             position: relative;
             margin: 20px auto;
             font-size: 1rem;
@@ -69,6 +118,7 @@
                         display: block;
                         margin: 0; padding: 0;
                         width: 100%;
+                        
                     }
                     .desc {
                         margin: 0; padding: 0;
@@ -102,6 +152,7 @@
                     align-items: center;
 
                     background: rgba(123,124,117, 0.95);
+                    background: #677E8B;
                     color: #FFFAF0;
 
                     div {

@@ -3,48 +3,44 @@
     text-align: left;
     .items {
         width: 100%;
-        
+
         .item {
             background: #f1f1f1;
-            margin:0 0 1px 0; padding: 5px;     
+            margin: 0 0 1px 0;
+            padding: 5px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             line-height: 1.1em;
             .item-img {
                 padding: 10px;
-                
             }
             .item-txt {
-                flex:1 0 240px;
+                flex: 1 0 240px;
                 padding: 10px;
                 p {
-                    margin:5px;
+                    margin: 5px;
                 }
             }
 
-            &:nth-child(odd){
-                background: #FFFAED;
+            &:nth-child(odd) {
+                background: #fffaed;
             }
-            &:nth-child(even){
-                background: #E8D8BC;
+            &:nth-child(even) {
+                background: #e8d8bc;
             }
-
         }
     }
 }
 .searchForm {
-
     text-align: left;
     .grid {
-        
         display: block;
         grid-template-columns: auto auto auto;
         grid-template-rows: auto auto;
         grid-template-areas:
             "title title title"
-            "authors dates techno"
-        ;
+            "authors dates techno";
 
         section {
             margin: 1px;
@@ -73,18 +69,49 @@
             }
             ul {
                 text-align: left;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                font-size: 0.8em;
+                li {
+                    padding: 3px 20px;
+                    &:nth-child(odd) {
+                    }
+                    &:nth-child(even){
+                        background: #EDDDCD;
+                    }
+                            }
             }
-            &.title  {
+
+            &.title {
                 grid-area: title;
                 min-height: 60px;
             }
-            &.authors  {
+            &.authors {
+                margin: 20px;
                 grid-area: authors;
             }
-            &.dates  {
+
+            &.dates {
+                margin: 20px;
                 grid-area: dates;
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding: 5px;
+                    background: #EDDDCD;
+
+                    li {
+                        background: #F3E8D4;
+                        margin: 5px;
+                        padding: 0px 6px;
+                    }
+                }
             }
-            &.techno  {
+            &.techno {
+                margin: 20px;
                 grid-area: techno;
             }
         }
@@ -92,9 +119,5 @@
         @media (min-width: 768px) {
             display: grid;
         }
-    
-    
     }
-
-
 }

@@ -3,6 +3,7 @@ import Layout from "../../app/layout/layout"
 import { getAllAuthors, getAuthor } from '../../app/api'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import ListPictures from "../../app/components/ListPictures"
 
 const PageCatalog = (props) => {
 
@@ -131,43 +132,11 @@ const PageCatalog = (props) => {
                 <div className="content">
                     <div className="txt">
 
-                        <h1>Поиск</h1>
                         <div className="searchResults">
-                            <h2>РЕЗУЛЬТАТ ПОИСКА {value && <span>"{value}"</span>}</h2>
-                            <div className="items">
-                                {list.length > 0 && list.map((el, i) => {
-                                    return (
-                                        <div key={i} className="item">
-                                            <div className="item-img">
-                                                <a href={`/_data/w1200/${el._img}.jpg`}
-                                                    target="_blank"
-                                                    data-caption={el.meta.название}
-                                                    data-lightbox="lightbox1" data-title={el.meta.название}
-                                                ><img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название} alt={el.meta.название} /></a>
-
-                                            </div>
-                                            <div className="item-txt">
-                                                <p>Автор: <Link href={`/author/${el.author.dir}`}><a>{el.author.fio}</a></Link></p>
-                                                <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
-                                                <p>Год: {el.meta.год}</p>
-                                                <p>Инв. N: Г-{el.meta.код}</p>
-                                                <p>Подписи на изображении: {el.meta['подписи на изображении']}</p>
-                                                <p>Поступление: {el.meta.поступление}</p>
-                                                <p>Размер: {el.meta.размер}</p>
-                                                <p>Техника: {el.meta.техника}</p>
-
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                                {list.length === 0 &&
-                                    <div className="item">
-                                        <div className="item-txt">
-                                            Ничего не найдено.
-                                        </div>
-                                    </div>
-                                }
-                            </div>
+                            <h2>РЕЗУЛЬТАТ ВЫБОРКИ {value && <span>"{value}"</span>}</h2>
+                            
+                            <ListPictures pictures={list}/>
+                            
                         </div>
 
                         <div className="searchForm">

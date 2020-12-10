@@ -338,6 +338,9 @@ html {
 
                             a {
                                 color: #3E3931;
+                                &:hover {
+                                    color: #677E8B;
+                                }
                             }
                             div.centered {
                                 display: flex;

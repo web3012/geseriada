@@ -2,9 +2,8 @@
     text-align: left;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
-        "title"
         "foto" 
         "bio"
         "pics" 
@@ -18,7 +17,6 @@
         ;
     }
 
-    .meta { grid-area: meta;} 
     .foto { grid-area: foto;}
     .bio { grid-area: bio;}
     .pics { grid-area: pics;}
@@ -68,8 +66,6 @@
         }
     
     }
-
-
     .bio {
         padding: 0 20px 20px 20px;
         p{
@@ -97,44 +93,5 @@
         }
 
     }
-    .pics {
-        .items {
-            width: 100%;
-            .item {
-                background: #f1f1f1;
-                margin:0 0 1px 0; padding: 5px;     
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                line-height: 1.1em;
-                .item-img {
-                    padding: 10px;
-                    
-                }
-                .item-txt {
-                    flex:1 0 240px;
-                    padding: 10px;
-                    p {
-                        margin:5px;
-                    }
-                }
-    
-                &:nth-child(odd){
-                    background: #FFFAED;
-                }
-                &:nth-child(even){
-                    background: #E8D8BC;
-                }
-    
-            }
-        }
-    }
-    @media (min-width: 576px) {
-        .img {
-            img {
-                width: 60%;
-            }
-        }
-    
-    }
+
 }

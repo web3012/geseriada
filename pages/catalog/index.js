@@ -1,20 +1,61 @@
+import React from 'react'
 import Layout from "../../app/layout/layout"
-import { getAllAuthors, getAuthor } from '../../app/api'
+import { getTechniques, getAllAuthors, getAuthor } from '../../app/api'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const PageCatalog = (props) => {
     const router = useRouter()
 
+    let years = props.picYears || []
+    let technics = props.picTechnics || []
+
     return (
-        <Layout title="Каталог" keywords="" description="" breadcrumbs={[{title:"Каталог"}]}>
+        <Layout title="Каталог" keywords="" description="" breadcrumbs={[{ title: "Каталог" }]}>
 
             <div className="wr">
                 <div className="content">
                     <div className="txt">
-                        <h1>Каталог</h1>
 
                         <div className="page-catalog">
+
+                            <div className="items">
+                                <div className="item"><h4>ПО АВТОРАМ</h4></div>
+                                {props.authors && props.authors.map((el, i) => {
+                                    return (
+                                        <div key={i} className={`item item${i + 1}`}>
+                                            <Link href={`/author/${el.dir}`}><a>{el.meta.фио}</a></Link>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <div className="items">
+                                <div className="item"><h4>ПО ГОДАМ</h4></div>
+                                <div className="item item-years">
+                                    <div className="_wr">
+                                    {years.map((el,i) => {
+                                        return (
+                                            <React.Fragment key={i}>
+                                                <Link href={`/years/${el}`}><a>{el}</a></Link>&nbsp;
+                                            </React.Fragment>
+                                        )
+                                    })}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="items">
+                                <div className="item"><h4>ПО ТЕХНИКЕ</h4></div>
+                                {technics.map((el,i) => {
+                                    return (
+                                        <div className="item" key={i}><Link href={`/technique/${i}`}><a>{el}</a></Link></div>
+                                    )
+                                })}
+                            </div>
+
                             <div className="authors">
+
                                 {props.authors && props.authors.map((el, i) => {
                                     let dir = el.dir || ""
                                     let foto450 = el.foto450 || ""
@@ -26,10 +67,10 @@ const PageCatalog = (props) => {
                                     let count = el.pictures.length
 
                                     return (
-                                        <div key={i} className={`a a${i + 1}`} onTouchStart={()=>{}} onClick={()=>{
+                                        <div key={i} className={`a a${i + 1}`} onTouchStart={() => { }} onClick={() => {
                                             router.push({
                                                 pathname: `/author/${dir}`
-                                            }).then(() => window.scrollTo(0, 0))                                    
+                                            }).then(() => window.scrollTo(0, 0))
                                         }}>
                                             <div class="flipper">
                                                 <div class="front">
@@ -45,10 +86,10 @@ const PageCatalog = (props) => {
                                                     <div>
                                                         <span>Количество работ: {count}</span>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
-                                            
+
 
                                         </div>
                                     )
@@ -88,11 +129,7 @@ export async function getStaticProps() {
 
 
     // ============================================
-    let picTechnics = 'Акварель, акватинта, гравюра на пластике, гуашь, карандаш, линогравюра, офсет, смешанная техника, тушь'   //все возможные техники
-    picTechnics = picTechnics.toLowerCase()
-    picTechnics = picTechnics.split(',')
-    picTechnics = picTechnics.map(s => s.trim())
-    picTechnics.sort()
+    let picTechnics = await getTechniques()
 
     // ============================================
     let picYears = new Set()   //все возможные года
