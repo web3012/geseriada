@@ -1,12 +1,18 @@
+import React from 'react'
 import Layout from "../../app/layout/layout"
 import { getAllAuthors, getAuthor } from '../../app/api'
 import { useRouter } from 'next/router'
 import Link from "next/link"
 
+
 const PageAuthor = (props) => {
 
     const router = useRouter()
     let author = props.author || {}
+
+    React.useEffect(()=>{
+        
+    })
 
     return (
         <Layout breadcrumbs={[{ url: "/catalog", title: "Каталог" }, { title: author.fio }]}>
@@ -38,7 +44,7 @@ const PageAuthor = (props) => {
                                         return (
                                             <div key={i} className="item">
                                                 <div className="item-img">
-                                                    <img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название} />
+                                                    <a href={`/_data/w1200/${el._img}.jpg`} target="_blank" data-caption={el.meta.название}><img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название}  alt={el.meta.название}/></a>
                                                 </div>
                                                 <div className="item-txt">
                                                     <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>

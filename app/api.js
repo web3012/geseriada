@@ -33,7 +33,7 @@ const matter = async (source, newline = false) => { // newline - заменят�
 
         if (isParam === false) {
             if(newline){
-                content.push(s + " ")
+                content.push(s + "   ")
             } else {
                 content.push(s)
             }

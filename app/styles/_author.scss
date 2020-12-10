@@ -19,7 +19,7 @@
         ;
     }
 
-    .title { grid-area: title;} 
+    .title { grid-area: title; display: none;} 
     .foto { grid-area: foto;}
     .bio { grid-area: bio;}
     .pics { grid-area: pics;}

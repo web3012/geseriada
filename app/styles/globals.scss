@@ -354,10 +354,12 @@ html {
                                 height: 1px;
                             }
                             
+                            @import 'baguettebox.js/dist/baguetteBox.min.css';
                             @import "./search";
                             @import "./catalog";
                             @import "./author";
                             @import "./pic";
+                            
 
                         }
                         .txt-worded {
