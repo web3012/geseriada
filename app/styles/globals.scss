@@ -15,6 +15,7 @@
 
 html {
     body {
+        position: relative;
         font-family: "Kelson-Sans-Regular-RU";
         font-size: 14px;
         padding: 0;
@@ -306,7 +307,7 @@ html {
 
                         .txt {
                             text-align: justify;
-                            padding: 20px 40px 40px 40px;
+                            padding: 12px;
 
 
                             h1 {
@@ -354,7 +355,6 @@ html {
                                 height: 1px;
                             }
                             
-                            @import 'baguettebox.js/dist/baguetteBox.min.css';
                             @import "./search";
                             @import "./catalog";
                             @import "./author";
@@ -374,6 +374,9 @@ html {
                         font-size: 14px;
                         .content {
                             margin: 0 30px;
+                            .txt {
+                                padding: 20px 40px 40px 40px;
+                            }
                         }
                     }
                     @media (min-width: 768px) {

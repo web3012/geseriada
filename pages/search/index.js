@@ -22,7 +22,7 @@ const PageCatalog = (props) => {
         let t = router.query.type || null
         let v = router.query.value || null
         let s = router.query.sts || false
-        
+
         setType(t)
         setValue(v)
         setSTS(s)
@@ -35,83 +35,83 @@ const PageCatalog = (props) => {
     const search = () => {
         let res = []
 
-        if( sts === false){
+        if (sts === false) {
             // Набираем текст
         } else
 
-        if (type === "year") {
+            if (type === "year") {
 
-            //console.log("Поиск YEAR", value)
-            //console.log(">>", pictures[0].meta.год)
-            for (let el of pictures) {
-                let year = el.meta.год || ""
+                //console.log("Поиск YEAR", value)
+                //console.log(">>", pictures[0].meta.год)
+                for (let el of pictures) {
+                    let year = el.meta.год || ""
 
-                year = year.split("-")
-                if (year.length === 1) {
-                    year = year[0]
-                }
-                if (year.length === 2) {
-                    let n = 0
-                    let years = []
-                    for (let y = year[0]; y <= year[1]; y++) {
-                        n++; if (n > 10) break;
-                        years.push(y)
+                    year = year.split("-")
+                    if (year.length === 1) {
+                        year = year[0]
                     }
-                    year = years.join(',')
+                    if (year.length === 2) {
+                        let n = 0
+                        let years = []
+                        for (let y = year[0]; y <= year[1]; y++) {
+                            n++; if (n > 10) break;
+                            years.push(y)
+                        }
+                        year = years.join(',')
+                    }
+
+                    const reg = new RegExp(`${value}`, 'i')
+                    if (reg.test(year)) {
+                        //console.log(">>>", el.meta.год)
+                        res.push(el)
+                    }
                 }
+                setList(res)
+            } else
+                if (type === "techno") {
+                    //console.log(">>", pictures[0].meta.техника)
+                    for (let el of pictures) {
+                        let currTechnic = el.meta.техника || ""
+                        const reg = new RegExp(`${value}`, 'i')
 
-                const reg = new RegExp(`${value}`, 'i')
-                if (reg.test(year)) {
-                    //console.log(">>>", el.meta.год)
-                    res.push(el)
-                }
-            }
-            setList(res)
-        } else
-        if (type === "techno") {
-            //console.log(">>", pictures[0].meta.техника)
-            for (let el of pictures) {
-                let currTechnic = el.meta.техника || ""
-                const reg = new RegExp(`${value}`, 'i')
+                        if (reg.test(currTechnic)) {
+                            //console.log(">>>", el.meta.техника)
+                            res.push(el)
+                        }
+                    }
+                    setList(res)
 
-                if (reg.test(currTechnic)) {
-                    //console.log(">>>", el.meta.техника)
-                    res.push(el)
-                }
-            }
-            setList(res)
+                } else
+                    if (type === "author") {
+                        //console.log(">>", pictures[0].author)
+                        for (let el of pictures) {
+                            let currDir = el.author.fio || ""
+                            //console.log(">>>", value, currDir)
 
-        } else
-        if (type === "author") {
-            //console.log(">>", pictures[0].author)
-            for (let el of pictures) {
-                let currDir = el.author.fio || ""
-                //console.log(">>>", value, currDir)
+                            if (currDir === value) {
 
-                if (currDir === value) {
-                    
-                    res.push(el)
-                }
-            }
-            setList(res)
+                                res.push(el)
+                            }
+                        }
+                        setList(res)
 
-        }else
-        if (type === "title" && sts) {
-            //console.log(">>", pictures[0].meta)
-            for (let el of pictures) {
-                let currTitle = el.meta.название || ""
-                const reg = new RegExp(`${value}`, 'i')
+                    } else
+                        if (type === "title" && sts) {
+                            //console.log(">>", pictures[0].meta)
+                            for (let el of pictures) {
+                                let currTitle = el.meta.название || ""
+                                const reg = new RegExp(`${value}`, 'i')
 
-                if (reg.test(currTitle)) {
-                    //console.log(">>>", el.meta.название)
-                    res.push(el)
-                }
-            }
-            setList(res)
+                                if (reg.test(currTitle)) {
+                                    //console.log(">>>", el.meta.название)
+                                    res.push(el)
+                                }
+                            }
+                            setList(res)
 
-        }else {
-            setList([])
-        }
+                        } else {
+                            setList([])
+                        }
 
     }
 
@@ -125,7 +125,7 @@ const PageCatalog = (props) => {
     let inputValue = type === "title" ? value : ""
 
     return (
-        <Layout title="Поиск" keywords="" description="" breadcrumbs={[{title:"Поиск"}]}>
+        <Layout title="Поиск" keywords="" description="" breadcrumbs={[{ title: "Поиск" }]}>
 
             <div className="wr">
                 <div className="content">
@@ -138,17 +138,29 @@ const PageCatalog = (props) => {
                                 {list.length > 0 && list.map((el, i) => {
                                     return (
                                         <div key={i} className="item">
-                                            <div className="item-img"><img src={`/_data/w120/${el._img}.jpg`} width="120" title={el.meta.название}/></div>
+                                            <div className="item-img">
+                                                <a href={`/_data/w1200/${el._img}.jpg`}
+                                                    target="_blank"
+                                                    data-caption={el.meta.название}
+                                                    data-lightbox="lightbox1" data-title={el.meta.название}
+                                                ><img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название} alt={el.meta.название} /></a>
+
+                                            </div>
                                             <div className="item-txt">
-                                                <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
                                                 <p>Автор: <Link href={`/author/${el.author.dir}`}><a>{el.author.fio}</a></Link></p>
+                                                <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
                                                 <p>Год: {el.meta.год}</p>
+                                                <p>Инв. N: Г-{el.meta.код}</p>
+                                                <p>Подписи на изображении: {el.meta['подписи на изображении']}</p>
+                                                <p>Поступление: {el.meta.поступление}</p>
+                                                <p>Размер: {el.meta.размер}</p>
                                                 <p>Техника: {el.meta.техника}</p>
+
                                             </div>
                                         </div>
                                     )
                                 })}
-                                {list.length === 0 && 
+                                {list.length === 0 &&
                                     <div className="item">
                                         <div className="item-txt">
                                             Ничего не найдено.

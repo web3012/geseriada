@@ -18,7 +18,11 @@ const PageAuthor = (props) => {
                 <div className="content">
                     <div className="txt">
                         <div className="page-pic">
-                            <section className="img"><img src={`/_data/w1200/${pic._img}.jpg`} /></section>
+                            <section className="img">
+                                <a href={`/_data/w1200/${pic._img}.jpg`} data-lightbox="lightbox1" data-title={pic.meta.название}>
+                                    <img src={`/_data/w1200/${pic._img}.jpg`} />
+                                </a>
+                            </section>
                             <section className="desc">
                                 <div className="meta">
                                     <p>Автор: <Link href={`/author/${pic.author.dir}`}><a>{pic.author.fio}</a></Link></p>

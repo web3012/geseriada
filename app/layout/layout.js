@@ -54,6 +54,8 @@ const Layout = (props) => {
                 <meta property="og:image" content={previewImage} key="ogimage" />
                 <meta property="og:site_name" content="Гэсэриада - электронный каталог" key="ogsitename" />
 
+                <link href="/lib/lightbox2/css/lightbox.min.css" rel="stylesheet" />
+                <script src="/lib/lightbox2/js/lightbox-plus-jquery.min.js"></script>
             </Head>
             <header>
                 <div id="logo"><img src="/img/logotype.png" /></div>
@@ -79,7 +81,6 @@ const Layout = (props) => {
                     <Breadcrumbs path = {breadcrumbs}/>
                 </div>
             </header>
-
 
             <main>
                 {props.children}

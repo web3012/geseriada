@@ -4,15 +4,18 @@ import { getAllAuthors, getAuthor } from '../../app/api'
 import { useRouter } from 'next/router'
 import Link from "next/link"
 
-
 const PageAuthor = (props) => {
 
     const router = useRouter()
     let author = props.author || {}
 
-    React.useEffect(()=>{
-        
+    React.useEffect(() => {
+
     })
+
+    let fio = author.fio || ""
+    fio = fio.split(" ")
+    fio = fio[0] + ' ' + fio[1] + '<br/>' + fio[2]
 
     return (
         <Layout breadcrumbs={[{ url: "/catalog", title: "Каталог" }, { title: author.fio }]}>
@@ -21,20 +24,22 @@ const PageAuthor = (props) => {
                     <div className="txt">
                         <div className="page-author">
 
-                            <div className="title"><h1>{author.fio}</h1></div>
 
                             <div className="foto">
                                 <div className="pic">
-                                    <img src={author.foto450} />
+                                    <a href={author.foto450} data-lightbox="lightbox1" data-title={author.meta.фио}>
+                                        <img src={author.foto450} />
+                                    </a>
                                 </div>
-                            </div>
-
-                            <div className="bio">
                                 <div className="meta">
+                                    <h4 dangerouslySetInnerHTML={{ __html: fio }} />
                                     <p>{author.meta.год}</p>
                                     <p>{author.meta.титул}</p>
                                 </div>
 
+                            </div>
+
+                            <div className="bio">
                                 <div dangerouslySetInnerHTML={{ __html: author.content }} />
                             </div>
 
@@ -44,7 +49,12 @@ const PageAuthor = (props) => {
                                         return (
                                             <div key={i} className="item">
                                                 <div className="item-img">
-                                                    <a href={`/_data/w1200/${el._img}.jpg`} target="_blank" data-caption={el.meta.название}><img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название}  alt={el.meta.название}/></a>
+                                                    <a
+                                                        href={`/_data/w1200/${el._img}.jpg`}
+                                                        target="_blank"
+                                                        data-caption={el.meta.название}
+                                                        data-lightbox="lightbox1" data-title={el.meta.название}
+                                                    ><img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название} alt={el.meta.название} /></a>
                                                 </div>
                                                 <div className="item-txt">
                                                     <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
