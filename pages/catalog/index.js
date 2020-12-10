@@ -26,7 +26,7 @@ const PageCatalog = (props) => {
                                     let count = el.pictures.length
 
                                     return (
-                                        <div key={i} className={`a a${i + 1}`} ontouchstart={()=>{}} onClick={()=>{
+                                        <div key={i} className={`a a${i + 1}`} onTouchStart={()=>{}} onClick={()=>{
                                             router.push({
                                                 pathname: `/author/${dir}`
                                             }).then(() => window.scrollTo(0, 0))                                    

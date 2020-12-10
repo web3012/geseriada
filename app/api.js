@@ -42,13 +42,16 @@ const matter = async (source, newline = false) => { // newline - заменят�
 
     }
 
-
     const converter = new showdown.Converter({
         noHeaderId: true
     })
 
     content = content.join("\n")
-    content = converter.makeHtml(content)
+    try {
+        content = converter.makeHtml(content)
+    }catch(err){
+        console.log("Error", err)        
+    }
 
     return {
         meta: Object.fromEntries(new Map(param)) || {},

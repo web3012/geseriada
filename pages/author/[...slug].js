@@ -18,13 +18,14 @@ const PageAuthor = (props) => {
                 <div className="content">
                     <div className="txt">
                         <div className="page-pic">
-                            <section className="title"><h2>{pic.author.fio} / {pic.meta.название}</h2></section>
                             <section className="img"><img src={`/_data/w1200/${pic._img}.jpg`} /></section>
                             <section className="desc">
                                 <div className="meta">
                                     <p>Автор: <Link href={`/author/${pic.author.dir}`}><a>{pic.author.fio}</a></Link></p>
-                                    <p>Название: {pic.meta.название}</p>
+                                    <p>Название: <Link href={`/author/${pic.author.dir}/${pic._img}`}><a>{pic.meta.название}</a></Link></p>
                                     <p>Год: {pic.meta.год}</p>
+                                    <p>Инв. N: Г-{pic.meta.код}</p>
+                                    <p>Подписи на изображении: {pic.meta['подписи на изображении']}</p>
                                     <p>Поступление: {pic.meta.поступление}</p>
                                     <p>Размер: {pic.meta.размер}</p>
                                     <p>Техника: {pic.meta.техника}</p>
@@ -56,6 +57,7 @@ export async function getStaticProps(context) {
             break
         }
     }
+    
     return {
         props: {
             slug,
@@ -71,11 +73,15 @@ export async function getStaticPaths() {
     const authors = await getAllAuthors()
     for (let el of authors) {
         let author = await getAuthor(el.dir)
+        //console.log("author", author)
         for (let pic of author.pictures) {
-            paths.push({ params: { slug: [el.dir, pic._img] } })
+            //console.log("paths", pic.author.dir, pic._img)
+            paths.push({ params: { slug: [pic.author.dir, pic._img] } })
         }
     }
 
+    
+    
     return {
         paths: paths,
         fallback: false

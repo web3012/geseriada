@@ -1,19 +1,17 @@
 .page-pic {
     display: block;
     grid-template-columns: 30% auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     grid-template-areas:
-        "title title"
         "img desc"
     ;
     @media (min-width: 768px) {
         display: grid;
     }
-    .title  {
-        grid-area: title;
-    }
     .img  {
         grid-area: img;
+        padding: 20px 0;
+        
         img {
             width: 100%;
             border: 1px solid #646057;
@@ -21,9 +19,7 @@
     }
     .desc  {
         grid-area: desc;
-
         padding: 20px 0;
-
         
         div.meta {
             p {
@@ -35,12 +31,19 @@
             p {
                 margin: 2px 0;
             }
+            ul {
+                list-style: "– ";
+                margin: 0; padding: 0;
+                li {
+                    margin: 0; padding: 0;
+                }
+            }
         }
         div.litra {
             font-size: 0.8em;
         }
         @media (min-width: 768px) {
-            padding: 0 0 0 40px;
+            padding: 20px 0 0 40px;
         }
 
     }
