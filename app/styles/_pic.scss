@@ -24,15 +24,19 @@
 
         padding: 20px 0;
 
-        p:first-child {
-            margin-top: 0;
-        }
-        .meta {
+        
+        div.meta {
             p {
                 margin: 2px 0;
             }
         }
-        p.litra {
+        div.desc-txt {
+            margin-bottom: 40px;
+            p {
+                margin: 2px 0;
+            }
+        }
+        div.litra {
             font-size: 0.8em;
         }
         @media (min-width: 768px) {

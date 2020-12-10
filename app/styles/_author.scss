@@ -2,8 +2,9 @@
     text-align: left;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:
+        "title"
         "foto" 
         "bio"
         "pics" 
@@ -24,9 +25,10 @@
     .pics { grid-area: pics;}
 
     .foto {
-        max-width: 300px;
+        display: flex;
+        justify-content: center;
         .pic {
-            padding:20px;
+            margin:20px auto;
             img {
                 width: 100%;
                 max-width: 300px;
@@ -35,13 +37,14 @@
         }
     }
     .bio {
-        padding: 20px;
+        padding: 0 20px 20px 20px;
         p{
             text-indent: 2em;
             text-align: justify;
         }
         .meta {
             p {
+                text-align: center;
                 text-indent: 0;
                 margin: 5px 0;
             }
@@ -56,6 +59,14 @@
         ul {
             margin-top: 5px;
             font-size: 0.8em;
+        }
+        @media (min-width: 1200px) {
+            padding: 20px;
+            .meta {
+                p {
+                    text-align: left;
+                }
+            }
         }
 
     }

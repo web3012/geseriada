@@ -3,7 +3,7 @@ import showdown from 'showdown'
 
 const datadir = join(process.cwd(), 'public', '_data')
 
-const matter = async (source) => {
+const matter = async (source, newline = false) => { // newline - заменять \n на абзац
     let a = source.split('\n')
     let isParam = null
 
@@ -32,7 +32,11 @@ const matter = async (source) => {
         }
 
         if (isParam === false) {
-            content.push(s)
+            if(newline){
+                content.push(s + " ")
+            } else {
+                content.push(s)
+            }
             continue
         }
 
@@ -42,7 +46,6 @@ const matter = async (source) => {
     const converter = new showdown.Converter({
         noHeaderId: true
     })
-
 
     content = content.join("\n")
     content = converter.makeHtml(content)
@@ -107,7 +110,7 @@ export async function getAuthor(slug) {
         try {
             let txt = fs.readFileSync(filename)
             txt = iconv.decode(txt, "win1251")
-            let foto = await matter(txt)
+            let foto = await matter(txt, true)
 
             let found = filename.match(/\/img\/(.*)\.txt/i)
             let img = ""

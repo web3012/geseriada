@@ -30,8 +30,8 @@ const PageAuthor = (props) => {
                                     <p>Техника: {pic.meta.техника}</p>
                                 </div>
                                 <h4>Описание</h4>
-                                <div dangerouslySetInnerHTML={{ __html: pic.content }} />
-                                <p class="litra">Литература: {pic.meta.литература}</p>
+                                <div className="desc-txt" dangerouslySetInnerHTML={{ __html: pic.content }} />
+                                <div className="litra">Литература: {pic.meta.литература}</div>
                             </section>
 
                         </div>
