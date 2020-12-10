@@ -41,7 +41,7 @@ const PageAuthor = (props) => {
                                             <div className="item-txt">
                                                 <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
                                                 <p>Год: {el.meta.год}</p>
-                                                <p>Инвентарный номер: Г-{el.meta.код}</p>
+                                                <p>Инв. N: Г-{el.meta.код}</p>
                                                 <p>Подписи на изображении: {el.meta['подписи на изображении']}</p>
                                                 <p>Поступление: {el.meta.поступление}</p>
                                                 <p>Размер: {el.meta.размер}</p>
