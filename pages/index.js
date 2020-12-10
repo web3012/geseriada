@@ -8,29 +8,28 @@ const Page = (props) => {
     let autors = props.autors || []
     let ref = React.useRef(null)
 
-    React.useEffect(()=>{
-        
+    React.useEffect(() => {
+
     }, [])
 
-    const replay = ()=> {
+    const replay = () => {
         ref.current.pause()
         ref.current.currentTime = '0'
         ref.current.play()
     }
-// <div className="screen">
-//     <img src="/img/screen.jpg" />
-// </div>    
+    // <div className="screen">
+    //     <img src="/img/screen.jpg" />
+    // </div>    
     return (
-        <Layout  title="Электронный каталог Гэсэриада" keywords="" description="">
-        
-            <div className="screen">
-                <video ref={ref} width="100%" height="auto" poster="/img/screen.jpg" autoPlay muted onClick={replay}>
-                    <source src="/mp4/DrujinaGeser.mp4" type="video/mp4" />
-                </video>
-            </div>
+        <Layout title="Электронный каталог Гэсэриада" keywords="" description="">
 
             <div className="wr">
                 <div className="content">
+                    <div className="screen">
+                        <video ref={ref} width="100%" height="auto" poster="/img/screen.jpg" autoPlay muted onClick={replay}>
+                            <source src="/mp4/DrujinaGeser.mp4" type="video/mp4" />
+                        </video>
+                    </div>
                     <FrontpageSlider />
                 </div>
             </div>
