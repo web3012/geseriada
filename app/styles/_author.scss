@@ -9,14 +9,16 @@
         "pics" 
     ;
     @media (min-width: 1200px) {
-        grid-template-columns: auto auto;
-        grid-template-rows: auto auto;
+        grid-template-columns: 30% auto;
+        grid-template-rows: auto auto auto;
         grid-template-areas:
+        "title title"
         "foto bio" 
         "pics pics"
         ;
     }
 
+    .title { grid-area: title;} 
     .foto { grid-area: foto;}
     .bio { grid-area: bio;}
     .pics { grid-area: pics;}
@@ -31,24 +33,31 @@
             }
     
         }
-        .meta {
-            text-align: center;
-            padding: 0 20px 20px 20px;
-            p:first-child {
-                margin-top: 0;
-            }
-        }
     }
     .bio {
         padding: 20px;
-        h1 {
-            text-align: left;
-            margin-top: 0;
-        }
         p{
             text-indent: 2em;
             text-align: justify;
         }
+        .meta {
+            p {
+                text-indent: 0;
+                margin: 5px 0;
+            }
+            p:first-child {
+                margin-top: 0;
+            }
+        }
+        h4 {
+            font-size: 0.8em;
+            margin-bottom: 0;
+        }
+        ul {
+            margin-top: 5px;
+            font-size: 0.8em;
+        }
+
     }
     .pics {
         .items {
