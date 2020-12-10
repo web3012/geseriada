@@ -60,6 +60,7 @@ export async function getStaticProps(context) {
 
     let slug = context.params.slug
     let author = await getAuthor(slug)
+    
 
     return {
         props: {

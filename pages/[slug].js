@@ -14,7 +14,7 @@ const Page = (props) => {
         <Layout title={pageTitle} keywords={pageKeywords} description={pageDescription}>
             <div className="wr">
                 <div className="content">
-                    <div dangerouslySetInnerHTML={{__html: content}} className="txt"></div>                    
+                    <div dangerouslySetInnerHTML={{__html: content}} className="txt txt-worded"></div>                    
                 </div>
             </div>
 

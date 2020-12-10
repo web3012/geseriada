@@ -315,11 +315,14 @@ html {
                             p.author {
                                 margin: 30px 0 0 0;
                                 text-align: right;
+                                font-size: 0.8em;
+                                line-height: 1.3em;
                             }
                             p.centered {
                                 text-align: center;
                             }
                             ul {
+                                list-style-type: decimal;
                                 p {
                                     text-indent: 0;
                                 }
@@ -339,6 +342,12 @@ html {
                             @import "./author";
                             @import "./pic";
 
+                        }
+                        .txt-worded {
+                            p {
+                                text-indent: 2em;
+                                text-align: justify;
+                            }
                         }
 
                     }
