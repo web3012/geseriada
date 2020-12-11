@@ -28,11 +28,11 @@ const PageAuthor = (props) => {
                                     <p>Автор: <Link href={`/author/${pic.author.dir}`}><a>{pic.author.fio}</a></Link></p>
                                     <p>Название: <Link href={`/author/${pic.author.dir}/${pic._img}`}><a>{pic.meta.название}</a></Link></p>
                                     <p>Год: {pic.meta.год}</p>
-                                    <p>Инв. N: Г-{pic.meta.код}</p>
+                                    <p>Техника: {pic.meta.техника}</p>
+                                    <p>Размер: {pic.meta.размер}</p>
                                     <p>Подписи на изображении: {pic.meta['подписи на изображении']}</p>
                                     <p>Поступление: {pic.meta.поступление}</p>
-                                    <p>Размер: {pic.meta.размер}</p>
-                                    <p>Техника: {pic.meta.техника}</p>
+                                    <p>Инв. N: Г-{pic.meta.код}</p>
                                 </div>
                                 <h4>Описание</h4>
                                 <div className="desc-txt" dangerouslySetInnerHTML={{ __html: pic.content }} />
