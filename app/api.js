@@ -23,11 +23,10 @@ const matter = async (source, newline = false) => { // newline - заменят�
             }
         }
         if (isParam === true) {
-            
-            
             let aa = s.split(":")
-            let name = aa[0].trim().toLowerCase()
-            let value = aa[1] || "" ; value = value.trim()
+            let name = aa.shift().trim().toLowerCase() //Вырезаем первый элемент массива
+            let value = aa.join(":").trim() // объединяем оставшиеся элементы массива            
+
             if (name) {
                 param.push([name, value])
             }
