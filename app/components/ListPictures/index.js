@@ -7,6 +7,12 @@ const ListPictures = ({ pictures }) => {
         <React.Fragment>
             <div className={`items ${styles.items}`}>
                 {pictures && pictures.map((el, i) => {
+                    let s = el.meta.podp_title || ""
+                    let podp_title = s.charAt(0).toUpperCase() + s.slice(1) // first char to uppercase
+                    let podp_value = el.meta.podp_value
+                    //console.log("el.meta", el.meta)
+                    
+                    
                     return (
                         <div key={i} className={`item ${styles.item}`}>
                             <div className={`item-img ${styles.img}`}>
@@ -23,7 +29,8 @@ const ListPictures = ({ pictures }) => {
                                 <p>Год: {el.meta.год}</p>
                                 <p>Техника: {el.meta.техника}</p>
                                 <p>Размер: {el.meta.размер}</p>
-                                <p>Подписи на изображении: {el.meta['подписи на изображении']}</p>
+                                {podp_value === null && <p>{podp_title}</p>}
+                                {podp_value !== null && <p>{podp_title}: {podp_value}</p>}
                                 <p>Поступление: {el.meta.поступление}</p>
                                 <p>Инв. N: Г-{el.meta.код}</p>
                             </div>

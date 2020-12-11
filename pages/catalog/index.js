@@ -10,6 +10,8 @@ const PageCatalog = (props) => {
     let years = props.picYears || []
     let technics = props.picTechnics || []
 
+
+
     return (
         <Layout title="Каталог" keywords="" description="" breadcrumbs={[{ title: "Каталог" }]}>
 
@@ -19,40 +21,7 @@ const PageCatalog = (props) => {
 
                         <div className="page-catalog">
 
-                            <div className="items">
-                                <div className="item"><h4>ПО АВТОРАМ</h4></div>
-                                {props.authors && props.authors.map((el, i) => {
-                                    return (
-                                        <div key={i} className={`item item${i + 1}`}>
-                                            <Link href={`/author/${el.dir}`}><a>{el.meta.фио}</a></Link>
-                                        </div>
-                                    )
-                                })}
-                            </div>
 
-                            <div className="items">
-                                <div className="item"><h4>ПО ГОДАМ</h4></div>
-                                <div className="item item-years">
-                                    <div className="_wr">
-                                    {years.map((el,i) => {
-                                        return (
-                                            <React.Fragment key={i}>
-                                                <Link href={`/years/${el}`}><a>{el}</a></Link>&nbsp;
-                                            </React.Fragment>
-                                        )
-                                    })}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="items">
-                                <div className="item"><h4>ПО ТЕХНИКЕ</h4></div>
-                                {technics.map((el,i) => {
-                                    return (
-                                        <div className="item" key={i}><Link href={`/technique/${i}`}><a>{el}</a></Link></div>
-                                    )
-                                })}
-                            </div>
 
                             <div className="authors">
 
@@ -96,6 +65,40 @@ const PageCatalog = (props) => {
                                 })}
                             </div>
 
+                            <div className="items">
+                                <div className="item"><h4>ПО АВТОРАМ</h4></div>
+                                {props.authors && props.authors.map((el, i) => {
+                                    return (
+                                        <div key={i} className={`item item${i + 1}`}>
+                                            <Link href={`/author/${el.dir}`}><a>{el.meta.фио}</a></Link>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <div className="items">
+                                <div className="item"><h4>ПО ГОДАМ</h4></div>
+                                <div className="item item-years">
+                                    <div className="_wr">
+                                        {years.map((el, i) => {
+                                            return (
+                                                <React.Fragment key={i}>
+                                                    <Link href={`/years/${el}`}><a>{el}</a></Link>&nbsp;
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="items">
+                                <div className="item"><h4>ПО ТЕХНИКЕ</h4></div>
+                                {technics.map((el, i) => {
+                                    return (
+                                        <div className="item" key={i}><Link href={`/technique/${i}`}><a>{el}</a></Link></div>
+                                    )
+                                })}
+                            </div>
 
                         </div>
 
