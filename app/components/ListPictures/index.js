@@ -29,8 +29,7 @@ const ListPictures = ({ pictures }) => {
                                 <p>Год: {el.meta.год}</p>
                                 <p>Техника: {el.meta.техника}</p>
                                 <p>Размер: {el.meta.размер}</p>
-                                {podp_value === null && <p>{podp_title}</p>}
-                                {podp_value !== null && <p>{podp_title}: {podp_value}</p>}
+                                {podp_value ? <p>{podp_title}: {podp_value}</p> : <p>{podp_title}</p>}
                                 <p>Поступление: {el.meta.поступление}</p>
                                 <p>Инв. N: Г-{el.meta.код}</p>
                             </div>

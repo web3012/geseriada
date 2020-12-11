@@ -121,17 +121,10 @@ export async function getAuthor(slug) {
             //console.log("foto.meta", foto.meta)
             // Обработка различного написания подписей
             const reg = new RegExp('подпис', 'i')
-            const reg2 = new RegExp('подпис.* нет', 'i')
             for(let prop in foto.meta){
                 if(reg.test(prop)){
-                    if(reg2.test(prop)){
-                        foto.meta.podp_title = prop
-                        foto.meta.podp_value = null
-                    }else{
-                        foto.meta.podp_title = prop
-                        foto.meta.podp_value = foto.meta[prop]
-                    }
-    
+                    foto.meta.podp_title = prop
+                    foto.meta.podp_value = foto.meta[prop]
                 }
             }
 

@@ -12,6 +12,10 @@ const PageAuthor = (props) => {
 
     let pic = props.pic || {}
 
+    let s = pic.meta.podp_title || ""
+    let podp_title = s.charAt(0).toUpperCase() + s.slice(1) // first char to uppercase
+    let podp_value = pic.meta.podp_value
+
     return (
         <Layout breadcrumbs={[{ url: "/catalog", title: "Каталог" }, { url: `/author/${pic.author.dir}`, title: pic.author.fio }, { title: pic.meta.название }]}>
             <div className="wr">
@@ -30,7 +34,7 @@ const PageAuthor = (props) => {
                                     <p>Год: {pic.meta.год}</p>
                                     <p>Техника: {pic.meta.техника}</p>
                                     <p>Размер: {pic.meta.размер}</p>
-                                    <p>Подписи: {pic.meta.подписи}</p>
+                                    {podp_value ? <p>{podp_title}: {podp_value}</p> : <p>{podp_title}</p>}
                                     <p>Поступление: {pic.meta.поступление}</p>
                                     <p>Инв. N: Г-{pic.meta.код}</p>
                                 </div>
