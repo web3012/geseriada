@@ -35,18 +35,31 @@
 .searchForm {
     text-align: left;
     .grid {
-        display: block;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto;
-        grid-template-areas:
-            "title title title"
-            "authors dates techno";
+        display: flex;
+        flex-wrap: wrap;
 
         section {
             margin: 1px;
-            p {
-                text-indent: 0 !important;
+
+            .items {
+                flex:1 0 240px;
+                margin: 20px;
+                margin-bottom: 20px;
             }
+            .item {
+                text-align: left;
+                padding: 6px;
+                h4 {
+                    margin:0;
+                }
+                &:nth-child(even){
+                    background: #EDDDCD;
+                }
+                p {
+                    margin: 10px;
+                }
+            }   
+        
             a {
                 &:hover {
                     cursor: pointer;
@@ -67,36 +80,16 @@
                 font-size: 18px;
                 line-height: 18px;
             }
-            ul {
-                text-align: left;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                font-size: 0.8em;
-                li {
-                    padding: 3px 20px;
-                    &:nth-child(odd) {
-                    }
-                    &:nth-child(even){
-                        background: #EDDDCD;
-                    }
-                            }
-            }
 
             &.title {
-                grid-area: title;
-                min-height: 60px;
             }
             &.authors {
-                margin: 20px;
-                grid-area: authors;
             }
 
             &.dates {
-                margin: 20px;
-                grid-area: dates;
-
                 ul {
+                    list-style: none;
+                    margin: 0; padding: 0;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
@@ -111,8 +104,6 @@
                 }
             }
             &.techno {
-                margin: 20px;
-                grid-area: techno;
             }
         }
 

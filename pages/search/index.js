@@ -134,61 +134,71 @@ const PageCatalog = (props) => {
 
                         <div className="searchResults">
                             <h2>РЕЗУЛЬТАТ ВЫБОРКИ {value && <span>"{value}"</span>}</h2>
-                            
-                            <ListPictures pictures={list}/>
-                            
+
+                            <ListPictures pictures={list} />
+
                         </div>
 
                         <div className="searchForm">
                             <div className="grid">
 
                                 <section className="title">
-                                    <h4>ПО НАЗВАНИЮ КАРТИНЫ</h4>
-                                    <p>
-                                        <input type="text" placeholder="Название картины содержит"
-                                            onChange={(e) => {
-                                                setSTS(false)
-                                                setType("title")
-                                                setValue(e.target.value)
-                                            }}
-                                            value={inputValue} />
-                                    </p>
-                                    <p>
-                                        <button onClick={() => fire("title", inputValue)}>Поиск</button>
-                                    </p>
+                                    <div className="items">
+                                        <div className="item"><h4>ПО НАЗВАНИЮ КАРТИНЫ</h4></div>
+                                        <div className="item">
+                                            <p>
+                                                <input type="text" placeholder="Название картины содержит"
+                                                    onChange={(e) => {
+                                                        setSTS(false)
+                                                        setType("title")
+                                                        setValue(e.target.value)
+                                                    }}
+                                                    value={inputValue} />
+                                            </p>
+                                            <p>
+                                                <button onClick={() => fire("title", inputValue)}>Поиск</button>
+                                            </p>
+
+                                        </div>
+                                    </div>
                                 </section>
 
                                 <section className="authors">
-                                    <h4>ПО АВТОРАМ</h4>
-                                    <ul>
-                                        {authors.map(el => {
-                                            return (
-                                                <li key={el.dir}><a onClick={() => fire("author", el.fio)}>{el.fio}</a></li>
-                                            )
-                                        })}
-                                    </ul>
+                                    <div className="items">
+                                        <div className="item"><h4>ПО АВТОРАМ</h4></div>
+                                            {authors.map(el => {
+                                                return (
+                                                    <div key={el.dir} className="item"><a onClick={() => fire("author", el.fio)}>{el.fio}</a></div>
+                                                )
+                                            })}
+                                    </div>
                                 </section>
 
                                 <section className="dates">
-                                    <h4>ПО ДАТАМ</h4>
-                                    <ul>
-                                        {years.map(el => {
-                                            return (
-                                                <li key={el}><a onClick={() => fire("year", el)}>{el}</a></li>
-                                            )
-                                        })}
-                                    </ul>
+                                    <div className="items">
+                                        <div className="item"><h4>ПО ДАТАМ</h4></div>
+                                        <div className="item">
+                                        <ul>
+                                            {years.map(el => {
+                                                return (
+                                                    <li key={el}><a onClick={() => fire("year", el)}>{el}</a></li>
+                                                )
+                                            })}
+                                        </ul>
+                                        </div>
+                                    </div>
 
                                 </section>
+
                                 <section className="techno">
-                                    <h4>ПО ТЕХНИКЕ</h4>
-                                    <ul>
+                                    <div className="items">
+                                        <div className="item"><h4>ПО ТЕХНИКЕ</h4></div>
                                         {technics.map(el => {
                                             return (
-                                                <li key={el}><a onClick={() => fire("techno", el)}>{el}</a></li>
+                                                <div key={el} className="item"><a onClick={() => fire("techno", el)}>{el}</a></div>
                                             )
                                         })}
-                                    </ul>
+                                    </div>
                                 </section>
 
                             </div>

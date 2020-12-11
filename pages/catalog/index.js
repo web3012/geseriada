@@ -41,14 +41,14 @@ const PageCatalog = (props) => {
                                                 pathname: `/author/${dir}`
                                             }).then(() => window.scrollTo(0, 0))
                                         }}>
-                                            <div class="flipper">
-                                                <div class="front">
+                                            <div className="flipper">
+                                                <div className="front">
                                                     <img src={foto450} />
                                                     <div className="desc">
                                                         <div dangerouslySetInnerHTML={{ __html: fio }} />
                                                     </div>
                                                 </div>
-                                                <div class="back">
+                                                <div className="back">
                                                     <div className="fio" dangerouslySetInnerHTML={{ __html: fio }} />
                                                     <div>{year}</div>
                                                     <div>{titul}</div>
