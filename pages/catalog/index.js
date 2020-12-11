@@ -65,16 +65,6 @@ const PageCatalog = (props) => {
                                 })}
                             </div>
 
-                            <div className="items">
-                                <div className="item"><h4>ПО АВТОРАМ</h4></div>
-                                {props.authors && props.authors.map((el, i) => {
-                                    return (
-                                        <div key={i} className={`item item${i + 1}`}>
-                                            <Link href={`/author/${el.dir}`}><a>{el.meta.фио}</a></Link>
-                                        </div>
-                                    )
-                                })}
-                            </div>
 
                             <div className="items">
                                 <div className="item"><h4>ПО ГОДАМ</h4></div>
@@ -109,6 +99,18 @@ const PageCatalog = (props) => {
         </Layout>
     )
 }
+
+
+// <div className="items">
+// <div className="item"><h4>ПО АВТОРАМ</h4></div>
+// {props.authors && props.authors.map((el, i) => {
+//     return (
+//         <div key={i} className={`item item${i + 1}`}>
+//             <Link href={`/author/${el.dir}`}><a>{el.meta.фио}</a></Link>
+//         </div>
+//     )
+// })}
+// </div>
 
 export async function getStaticProps() {
 
