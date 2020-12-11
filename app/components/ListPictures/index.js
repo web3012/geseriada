@@ -21,11 +21,11 @@ const ListPictures = ({ pictures }) => {
                                 <p>Автор: <Link href={`/author/${el.author.dir}`}><a>{el.author.fio}</a></Link></p>
                                 <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
                                 <p>Год: {el.meta.год}</p>
-                                <p>Инв. N: Г-{el.meta.код}</p>
+                                <p>Техника: {el.meta.техника}</p>
+                                <p>Размер: {el.meta.размер}</p>
                                 <p>Подписи на изображении: {el.meta['подписи на изображении']}</p>
                                 <p>Поступление: {el.meta.поступление}</p>
-                                <p>Размер: {el.meta.размер}</p>
-                                <p>Техника: {el.meta.техника}</p>
+                                <p>Инв. N: Г-{el.meta.код}</p>
                             </div>
                         </div>
                     )
