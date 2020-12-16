@@ -94,4 +94,21 @@
 
     }
 
+    .pics {
+        .switch {
+            margin-bottom: 20px;
+            a {
+                display: inline-block;
+                font-size: 0.8em;
+                background: #E8D8BC;
+                padding: 5px 10px;
+
+                &.active {
+                    background: #BCAD93;
+                }
+            }
+
+        }
+    }
+
 }
