@@ -16,6 +16,19 @@
             width: 100%;
             border: 1px solid #646057;
         }
+
+        .nextprev {
+            display: flex;
+            justify-content: space-around;
+            text-transform: uppercase;
+            font-size: 0.6em;
+            a {
+                cursor: pointer;
+            }
+            span {
+                color: #ccc;
+            }
+        }
     }
     .desc  {
         grid-area: desc;

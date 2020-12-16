@@ -19,9 +19,8 @@ const PageAuthor = (props) => {
     // console.log("pic", props.pic)
 
     let author = props.author || {}
-    //console.log(">>>>>>>>>>", author)
-    
     let pic = props.pic || {}
+    
 
     let s = pic.meta.podp_title || ""
     let podp_title = s.charAt(0).toUpperCase() + s.slice(1) // first char to uppercase
@@ -30,6 +29,25 @@ const PageAuthor = (props) => {
     let [display, setDisplay] = React.useState(1)
     const setDisplay1 = ()=>{setDisplay(1)}
     const setDisplay2 = ()=>{setDisplay(2)}
+
+    // Для навигации вперед назад
+    let current_code = pic.meta.код || ""
+    let current_index = author.pictures.findIndex((el,i,a)=>{if(current_code === el.meta.код) return true})
+    let max_index =  author.pictures.length - 1
+    
+    const nextpic = (step) => {
+        let ind = current_index + step    
+        if(ind > max_index) ind = max_index
+        if(ind < 0) ind = 0
+
+        let _pic = author.pictures[ind]
+        let _url = `/author/${_pic.author.dir}/${_pic.meta.код}`        
+        router.push({
+            pathname: _url
+        }).then(() => window.scrollTo(0, 0))
+
+    }
+
 
     return (
         <Layout breadcrumbs={[{ url: "/catalog", title: "Каталог" }, { url: `/author/${pic.author.dir}`, title: pic.author.fio }, { title: pic.meta.название }]}>
@@ -41,6 +59,10 @@ const PageAuthor = (props) => {
                                 <a href={`/_data/w1200/${pic._img}.jpg`} data-lightbox="lightbox1" data-title={pic.meta.название}>
                                     <img src={`/_data/w1200/${pic._img}.jpg`} />
                                 </a>
+                                <div className="nextprev">
+                                    {current_index > 0 ? <a onClick={()=>{nextpic(-1)}}>&lt; Назад</a> : <span>Назад</span>}
+                                    {current_index < max_index ? <a onClick={()=>{nextpic(1)}}>Вперед &gt;</a> : <span>Вперед</span>}
+                                </div>
                             </section>
                             <section className="desc">
                                 <div className="meta">

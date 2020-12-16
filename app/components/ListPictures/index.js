@@ -31,7 +31,7 @@ const ListPictures = (props) => {
                                     <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
                                     <p>Год: {el.meta.год}</p>
                                     <p>Техника: {el.meta.техника}</p>
-                                    <p>Размер: {el.meta.размер}</p>
+                                    <p>Размер: <a title="Размер указан в милиметрах">{el.meta.размер}</a></p>
                                     {podp_value ? <p>{podp_title}: {podp_value}</p> : <p>{podp_title}</p>}
                                     <p>Поступление: {el.meta.поступление}</p>
                                     <p>Инв. N: Г-{el.meta.код}</p>
