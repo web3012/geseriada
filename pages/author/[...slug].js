@@ -1,7 +1,15 @@
+import React from 'react'
 import Layout from "../../app/layout/layout"
 import { getAllAuthors, getAuthor } from '../../app/api'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+
+import ListPictures from "../../app/components/ListPictures"
+import ListPicturesGallery from "../../app/components/ListPicturesGallery"
+
+import Display1 from '../../public/img/border-all-solid.svg'
+import Display2 from '../../public/img/list-solid.svg'
+
 
 const PageAuthor = (props) => {
 
@@ -10,11 +18,18 @@ const PageAuthor = (props) => {
     // console.log("slug", props.slug)
     // console.log("pic", props.pic)
 
+    let author = props.author || {}
+    //console.log(">>>>>>>>>>", author)
+    
     let pic = props.pic || {}
 
     let s = pic.meta.podp_title || ""
     let podp_title = s.charAt(0).toUpperCase() + s.slice(1) // first char to uppercase
     let podp_value = pic.meta.podp_value
+
+    let [display, setDisplay] = React.useState(1)
+    const setDisplay1 = ()=>{setDisplay(1)}
+    const setDisplay2 = ()=>{setDisplay(2)}
 
     return (
         <Layout breadcrumbs={[{ url: "/catalog", title: "Каталог" }, { url: `/author/${pic.author.dir}`, title: pic.author.fio }, { title: pic.meta.название }]}>
@@ -44,6 +59,22 @@ const PageAuthor = (props) => {
                             </section>
 
                         </div>
+
+                        <div className="page-author">
+                        <div className="pics">
+                        <div className="switch">
+                            {display === 1 ? 
+                                <a className="active" onClick={setDisplay1} ><Display1/></a>:
+                                <a onClick={setDisplay1}><Display1/></a>}&nbsp;
+                            {display === 2 ? 
+                                <a className="active" onClick={setDisplay2}><Display2/></a>:
+                                <a onClick={setDisplay2}><Display2/></a>}&nbsp;
+                            </div>
+                            {display === 1 && <ListPicturesGallery pictures={author.pictures} skip={pic.meta.код}/>}
+                            {display === 2 && <ListPictures pictures={author.pictures} skip={pic.meta.код}/>}
+                        </div>
+                    </div>
+
 
                     </div>
                 </div>

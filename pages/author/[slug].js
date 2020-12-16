@@ -55,7 +55,7 @@ const PageAuthor = (props) => {
                             <div className="pics">
                                 <div className="switch">
                                 {display === 1 ? 
-                                    <a className="active" onClick={setDisplay1}><Display1/></a>:
+                                    <a className="active" onClick={setDisplay1} ><Display1/></a>:
                                     <a onClick={setDisplay1}><Display1/></a>}&nbsp;
                                 {display === 2 ? 
                                     <a className="active" onClick={setDisplay2}><Display2/></a>:
