@@ -61,7 +61,11 @@ const Layout = (props) => {
                 <script src="/lib/lightbox2/js/lightbox-plus-jquery.min.js"></script>
             </Head>
             <header>
-                <div id="logo"><img src="/img/logotype.png" /></div>
+                <div id="logo" onClick={()=>{
+                    router.push({
+                        pathname: "/"
+                    }).then(() => window.scrollTo(0, 0))
+                }}><img src="/img/logotype.png" /></div>
                 <div id="sitename"><SvgSitename /></div>
                 <div id="search" onClick={() => {
                     router.push({
