@@ -57,7 +57,7 @@ const PageAuthor = (props) => {
                         <div className="page-pic">
                             <section className="img">
                                 <a href={`/_data/w1200/${pic._img}.jpg`} data-lightbox="lightbox1" data-title={pic.meta.название}>
-                                    <img src={`/_data/w1200/${pic._img}.jpg`} />
+                                    <img src={`/_data/w450/${pic._img}.jpg`} />
                                 </a>
                                 <div className="nextprev">
                                     {current_index > 0 ? <a onClick={()=>{nextpic(-1)}}>&lt; Назад</a> : <span>Назад</span>}
