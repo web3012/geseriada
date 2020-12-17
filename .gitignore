@@ -1,14 +1,5 @@
 .next/
 node_modules/
 out/
-public/_data/authors/baldaev_fi/img/*.jpg
-public/_data/authors/bolsoboev_ea/img/*.jpg
-public/_data/authors/merdigeev_rs/img/*.jpg
-public/_data/authors/oloev_dt/img/*.jpg
-public/_data/authors/pavlov_ge/img/*.jpg
-public/_data/authors/purbuev_dg/img/*.jpg
-public/_data/authors/sakharovskaya_ai/img/*.jpg
-public/_data/authors/sampilov_zs/img/*.jpg
-public/_data/authors/shenkhorov_chb/img/*.jpg
-
+public/_data/worig/
 package-lock.json

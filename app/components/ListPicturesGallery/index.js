@@ -24,7 +24,7 @@ const ListPicturesGallery = (props) => {
                                         target="_blank"
                                         data-caption={el.meta.название}
                                         data-lightbox="lightbox1" data-title={el.meta.название}
-                                    ><img src={`/_data/w240/${el._img}.png`} width="240" title={el.meta.название} alt={el.meta.название} /></a>
+                                    ><img src={`/_data/w240/${el._img}.jpg`} width="240" title={el.meta.название} alt={el.meta.название} /></a>
                                 </div>
                                 <div className={`item-txt ${styles.txt}`}>
                                     <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link>
