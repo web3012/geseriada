@@ -11,9 +11,15 @@ const ListPictures = (props) => {
         <React.Fragment>
             <div className={`items ${styles.items}`}>
                 {pictures && pictures.map((el, i) => {
-                    let s = el.meta.podp_title || ""
+                    let s = ""
+                    s = el.meta.podp_title || ""
                     let podp_title = s.charAt(0).toUpperCase() + s.slice(1) // first char to uppercase
                     let podp_value = el.meta.podp_value
+
+                    s = el.meta.razm_title || ""
+                    let razm_title = s.charAt(0).toUpperCase() + s.slice(1) // first char to uppercase
+                    let razm_value = el.meta.razm_value
+
                     //console.log("el.meta", el.meta)
                     if (skip !== el.meta.код) {
                         return (
@@ -31,7 +37,7 @@ const ListPictures = (props) => {
                                     <p>Название: <Link href={`/author/${el.author.dir}/${el._img}`}><a>{el.meta.название}</a></Link></p>
                                     <p>Год: {el.meta.год}</p>
                                     <p>Техника: {el.meta.техника}</p>
-                                    <p>Размер: <a title="Размер указан в милиметрах">{el.meta.размер}</a></p>
+                                    {razm_value ? <p>{razm_title}: <a title="Размер указан в милиметрах">{el.meta.razm_value}</a></p>: <p>{razm_title}</p>}
                                     {podp_value ? <p>{podp_title}: {podp_value}</p> : <p>{podp_title}</p>}
                                     <p>Поступление: {el.meta.поступление}</p>
                                     <p>Инв. N: Г-{el.meta.код}</p>

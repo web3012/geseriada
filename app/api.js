@@ -118,8 +118,11 @@ export async function getAuthor(slug) {
             let foto = await matter(txt, true)
 
             //console.log("foto.meta", foto.meta)
+            
+            let reg = null
+
             // Обработка различного написания подписей
-            const reg = new RegExp('подпис', 'i')
+            reg = new RegExp('подпис', 'i')
             for(let prop in foto.meta){
                 if(reg.test(prop)){
                     foto.meta.podp_title = prop
@@ -127,7 +130,14 @@ export async function getAuthor(slug) {
                 }
             }
 
-            
+            // Обработка различного написания Размер Размеры
+            reg = new RegExp('размер', 'i')
+            for(let prop in foto.meta){
+                if(reg.test(prop)){
+                    foto.meta.razm_title = prop
+                    foto.meta.razm_value = foto.meta[prop]
+                }
+            }
             
             let found = filename.match(/\/img\/(.*)\.txt/i)
             let img = ""
