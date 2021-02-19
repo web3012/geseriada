@@ -23,7 +23,7 @@ const Layout = (props) => {
 
     const router = useRouter()
     let previewImage = "/img/screen.jpg"
-    let currentURL = "https://geseriada.vercel.app" + router.asPath
+    let currentURL = "https://geseriada.muzeyrb.ru" + router.asPath
 
     React.useState(() => {
 
